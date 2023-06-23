@@ -1,6 +1,9 @@
 <template>
   <v-container>
-    <slot></slot>
+    <v-card>
+      <slot></slot>
+
+    </v-card>
   </v-container>
 </template>
 
