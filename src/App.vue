@@ -2,40 +2,46 @@
   <v-app>
     <v-main>
       <v-container class="d-flex justify-center">
-        <v-sheet>
-          <v-menu>
-            <template v-slot:activator="{ props }">
-              <v-btn
-                icon="mdi-plus"
-                color="primary"
-                v-bind="props"
+        <v-col></v-col>
+        <v-col cols="6">
+          <v-sheet class="overflow-auto" style="height: 93vh">
+            
+            <div 
+              v-for="(pattern, index) in addedPatterns"
+              :key="index"
+            >
+              <PatternParent 
+                v-model:title="addedPatterns[index]"
               >
-              </v-btn>
-            </template>
-            <v-list>
-              <v-list-item
-                v-for="pattern in patterns"
-                :key="pattern"
-                :value="pattern"
-                :disabled="addedPatterns.includes(pattern)"
-                @click="createNewPattern(pattern)"
-              >
-                <v-list-item-title>{{ pattern }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
+                <PatternInterface />
+              </PatternParent> 
+            </div>
           
-          <PatternParent
-            v-for="pattern in addedPatterns"
-            :key="pattern"
-          >
-            {{ pattern }}
-            <component 
-              :is="PatternInterface"
-            />
-          </PatternParent> 
-          
-        </v-sheet>
+            
+            
+          </v-sheet>
+        </v-col>
+        <v-col class="d-flex justify-start"><v-menu>
+              <template v-slot:activator="{ props }">
+                <v-btn
+                  icon="mdi-plus"
+                  color="primary"
+                  v-bind="props"
+                  class="d-fles float-end"
+                >
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item
+                  v-for="pattern in patterns"
+                  :key="pattern"
+                  :value="pattern"
+                  @click="createNewPattern(pattern)"
+                >
+                  <v-list-item-title>{{ pattern }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu></v-col>
       </v-container>
     </v-main>
   </v-app>
