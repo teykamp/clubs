@@ -15,7 +15,7 @@
               >
               <!-- probable redo the line above to match patetrn type -->
                 <PatternInterface
-                  :data="index"
+                  v-model:data="addedPatterns[index]"
                 />
                 <!-- v-model the contents of the pattern type -->
               </PatternParent> 

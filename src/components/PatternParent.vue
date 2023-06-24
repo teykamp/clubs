@@ -3,7 +3,7 @@
     <v-card>
       <v-card-title>
         <v-text-field 
-          v-model="a"
+          v-model="title"
           prepend-icon="mdi-rename-box"
           class="mt-2"
         ></v-text-field>
@@ -25,8 +25,7 @@ const emits = defineEmits([
   "update:title",
   "delete:title",
 ])
-const localTitle = ref(props.title)
-const a = computed({
+const title = computed({
   get: () => props.title,
   set: (value) => emits("update:title", value)
 })
