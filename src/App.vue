@@ -13,35 +13,37 @@
               <PatternParent 
                 v-model:title="addedPatterns[index]"
               >
+              <!-- probable redo the line above to match patetrn type -->
                 <PatternInterface />
+                <!-- v-model the contents of the pattern type -->
               </PatternParent> 
             </div>
-          
-            
-            
+
           </v-sheet>
         </v-col>
-        <v-col class="d-flex justify-start"><v-menu>
-              <template v-slot:activator="{ props }">
-                <v-btn
-                  icon="mdi-plus"
-                  color="primary"
-                  v-bind="props"
-                  class="d-fles float-end"
-                >
-                </v-btn>
-              </template>
-              <v-list>
-                <v-list-item
-                  v-for="pattern in patterns"
-                  :key="pattern"
-                  :value="pattern"
-                  @click="createNewPattern(pattern)"
-                >
-                  <v-list-item-title>{{ pattern }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu></v-col>
+        <v-col class="d-flex justify-start">
+          <v-menu>
+            <template v-slot:activator="{ props }">
+              <v-btn
+                icon="mdi-plus"
+                color="primary"
+                v-bind="props"
+                class="d-fles float-end"
+              >
+              </v-btn>
+            </template>
+            <v-list>
+              <v-list-item
+                v-for="pattern in patterns"
+                :key="pattern"
+                :value="pattern"
+                @click="createNewPattern(pattern)"
+              >
+                <v-list-item-title>{{ pattern }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </v-col>
       </v-container>
     </v-main>
   </v-app>
