@@ -7,14 +7,16 @@
           <v-sheet class="overflow-auto" style="height: 93vh">
             
             <div 
-              v-for="(pattern, index) in addedPatterns"
+              v-for="(_, index) in addedPatterns"
               :key="index"
             >
               <PatternParent 
-                v-model:title="addedPatterns[index]"
+                v-model:title="addedPatterns[index].displayName"
               >
               <!-- probable redo the line above to match patetrn type -->
-                <PatternInterface />
+                <PatternInterface
+                  :data="index"
+                />
                 <!-- v-model the contents of the pattern type -->
               </PatternParent> 
             </div>
@@ -34,10 +36,10 @@
             </template>
             <v-list>
               <v-list-item
-                v-for="pattern in patterns"
+                v-for="value, pattern in patterns"
                 :key="pattern"
                 :value="pattern"
-                @click="createNewPattern(pattern)"
+                @click="{addedPatterns.push(value); console.log(addedPatterns)}"
               >
                 <v-list-item-title>{{ pattern }}</v-list-item-title>
               </v-list-item>
@@ -54,11 +56,28 @@ import { ref } from 'vue'
 import PatternParent from '@/components/PatternParent.vue'
 import PatternInterface from '@/components/PatternInterface.vue'
 import { patterns } from '@/data/patterns'
+import type { SolidColor,
+              PulsingColor,
+              Confetti,
+              MultiPole,
+              VerticalWave,
+              Torch,
+              LinearRainbow,
+              VerticalRainbow,
+              BPM,
+              Juggle
+            } from '@/data/types'
+            
+const addedPatterns = ref<(SolidColor|
+                          PulsingColor|
+                          Confetti|
+                          MultiPole|
+                          VerticalWave|
+                          Torch|
+                          LinearRainbow|
+                          VerticalRainbow|
+                          BPM|
+                          Juggle)[]>([])
 
-const addedPatterns = ref<string[]>([])
-
-function createNewPattern(pattern: string) {
-  addedPatterns.value.push(pattern)
-}
 
 </script>

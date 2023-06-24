@@ -1,5 +1,4 @@
 type BasePattern = {
-    name: string,
     displayName: string,
     color: [number, number, number],
     bodyColor: {
@@ -31,7 +30,6 @@ type BasePattern = {
 }
 
 type BaseSmallPattern = {
-    name: string,
     displayName: string,
     sparkleColor: {
         on: boolean,

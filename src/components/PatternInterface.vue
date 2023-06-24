@@ -9,18 +9,17 @@
       </v-btn>
     </div>
     <v-expand-transition>
-      <v-card
-        v-show="expand"
-        height="100"
-        width="100"
-        class="mx-auto bg-secondary"
-      ></v-card>
+      
     </v-expand-transition>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+
+const props= defineProps<{
+  data: number
+}>()
 
 const expand = ref(false)
 </script>
