@@ -39,7 +39,7 @@
                 v-for="value, pattern in patterns"
                 :key="pattern"
                 :value="pattern"
-                @click="{addedPatterns.push(value); console.log(addedPatterns)}"
+                @click="addedPatterns.push(JSON.parse(JSON.stringify(value)))"
               >
                 <v-list-item-title>{{ pattern }}</v-list-item-title>
               </v-list-item>
@@ -78,6 +78,4 @@ const addedPatterns = ref<(SolidColor|
                           VerticalRainbow|
                           BPM|
                           Juggle)[]>([])
-
-
 </script>
