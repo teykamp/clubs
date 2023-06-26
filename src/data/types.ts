@@ -1,29 +1,49 @@
 type BasePattern = {
     displayName: string,
-    color: [number, number, number],
+    color: {
+        "h": number,
+        "s": number,
+        "l": number
+    },
     bodyColor: {
         on: boolean,
         speed: number,
         duration: number,
-        color: [number, number, number],
+        color: {
+                "h": number,
+                "s": number,
+                "l": number
+            },
     },
     ringColor: {
         on: boolean,
         speed: number,
         duration: number,
-        color: [number, number, number],
+        color: {
+                "h": number,
+                "s": number,
+                "l": number
+            },
     },
     sparkleColor: {
         on: boolean,
         speed: number,
         duration: number,
-        color: [number, number, number],
+        color: {
+                "h": number,
+                "s": number,
+                "l": number
+            },
     },
     flashColor: {
         on: boolean,
         speed: number,
         duration: number,
-        color: [number, number, number],
+        color: {
+                "h": number,
+                "s": number,
+                "l": number
+            },
     },
     patternSpeed: number,
     colorCycleSpeed: number,
@@ -35,13 +55,21 @@ type BaseSmallPattern = {
         on: boolean,
         speed: number,
         duration: number,
-        color: [number, number, number],
+        color: {
+                "h": number,
+                "s": number,
+                "l": number
+            },
     },
     flashColor: {
         on: boolean,
         speed: number,
         duration: number,
-        color: [number, number, number],
+        color: {
+                "h": number,
+                "s": number,
+                "l": number
+            },
     },
     patternSpeed: number
 }
@@ -55,7 +83,11 @@ export type MultiPole = BasePattern & {
         on: boolean,
         speed: number,
         duration: number,
-        color: [number, number, number],
+        color: {
+                "h": number,
+                "s": number,
+                "l": number
+            },
     }
 }
 export type VerticalWave = MultiPole

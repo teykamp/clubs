@@ -10,16 +10,15 @@
     </div>
     <v-expand-transition>
       <v-card v-show="expand">
-        <v-color-picker :modes="['hsl']" v-model="colors"></v-color-picker>
-        {{ colors }}
+        <v-color-picker :modes="['hsl']" v-model="data.sparkleColor.color"></v-color-picker>
+        {{ data.sparkleColor.color }}
       </v-card>
     </v-expand-transition>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { hexToHSL } from '@/functions/hexToHSL'
+import { ref, computed } from 'vue'
 import type { SolidColor,
               PulsingColor,
               Confetti,
@@ -46,5 +45,14 @@ const props= defineProps<{
 }>()
 
 const expand = ref(false)
-const colors = ref({"h": 0, "s": 0, "l": 0})
+// const colors = ref({"h": 0, "s": 0, "l": 0})
+
+const emits = defineEmits([
+  "update:data",
+])
+
+const data = computed({
+  get: () => props.data,
+  set: (value) => emits("update:data", value)
+})
 </script>
