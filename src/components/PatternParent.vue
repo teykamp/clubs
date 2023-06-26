@@ -23,7 +23,6 @@ const props = defineProps<{
 
 const emits = defineEmits([
   "update:title",
-  "delete:title",
 ])
 const title = computed({
   get: () => props.title,
