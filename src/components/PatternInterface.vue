@@ -10,6 +10,7 @@
     </div>
     <v-expand-transition>
       <v-card v-show="expand">
+
         {{ data }}
       </v-card>
     </v-expand-transition>
@@ -31,7 +32,7 @@ import type { SolidColor,
             } from '@/data/types' 
 
 const props= defineProps<{
-  data: (SolidColor|
+  data: SolidColor|
         PulsingColor|
         Confetti|
         MultiPole|
@@ -40,7 +41,7 @@ const props= defineProps<{
         LinearRainbow|
         VerticalRainbow|
         BPM|
-        Juggle)
+        Juggle
 }>()
 
 const expand = ref(false)
