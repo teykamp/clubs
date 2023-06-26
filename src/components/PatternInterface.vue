@@ -10,8 +10,8 @@
     </div>
     <v-expand-transition>
       <v-card v-show="expand">
-
-        {{ data }}
+        <v-color-picker :modes="['hsl']" v-model="colors"></v-color-picker>
+        {{ colors }}
       </v-card>
     </v-expand-transition>
   </div>
@@ -19,6 +19,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { hexToHSL } from '@/functions/hexToHSL'
 import type { SolidColor,
               PulsingColor,
               Confetti,
@@ -45,4 +46,5 @@ const props= defineProps<{
 }>()
 
 const expand = ref(false)
+const colors = ref({"h": 0, "s": 0, "l": 0})
 </script>
