@@ -1,49 +1,100 @@
 type BasePattern = {
     displayName: string,
-    color: {
+    color: [{
         "h": number,
         "s": number,
         "l": number
     },
+    {
+        "h": number,
+        "s": number,
+        "l": number
+    },
+    {
+        "h": number,
+        "s": number,
+        "l": number
+    }
+],
     bodyColor: {
         on: boolean,
         speed: number,
         duration: number,
-        color: {
+        color: [{
                 "h": number,
                 "s": number,
                 "l": number
             },
+            {
+                "h": number,
+                "s": number,
+                "l": number
+            },
+            {
+                "h": number,
+                "s": number,
+                "l": number
+            }],
     },
     ringColor: {
         on: boolean,
         speed: number,
         duration: number,
-        color: {
-                "h": number,
-                "s": number,
-                "l": number
-            },
+        color: [{
+            "h": number,
+            "s": number,
+            "l": number
+        },
+        {
+            "h": number,
+            "s": number,
+            "l": number
+        },
+        {
+            "h": number,
+            "s": number,
+            "l": number
+        }],
     },
     sparkleColor: {
         on: boolean,
         speed: number,
         duration: number,
-        color: {
-                "h": number,
-                "s": number,
-                "l": number
-            },
+        color: [{
+            "h": number,
+            "s": number,
+            "l": number
+        },
+        {
+            "h": number,
+            "s": number,
+            "l": number
+        },
+        {
+            "h": number,
+            "s": number,
+            "l": number
+        }],
     },
     flashColor: {
         on: boolean,
         speed: number,
         duration: number,
-        color: {
-                "h": number,
-                "s": number,
-                "l": number
-            },
+        color: [{
+            "h": number,
+            "s": number,
+            "l": number
+        },
+        {
+            "h": number,
+            "s": number,
+            "l": number
+        },
+        {
+            "h": number,
+            "s": number,
+            "l": number
+        }],
     },
     patternSpeed: number,
     colorCycleSpeed: number,
@@ -55,21 +106,41 @@ type BaseSmallPattern = {
         on: boolean,
         speed: number,
         duration: number,
-        color: {
-                "h": number,
-                "s": number,
-                "l": number
-            },
+        color: [{
+            "h": number,
+            "s": number,
+            "l": number
+        },
+        {
+            "h": number,
+            "s": number,
+            "l": number
+        },
+        {
+            "h": number,
+            "s": number,
+            "l": number
+        }],
     },
     flashColor: {
         on: boolean,
         speed: number,
         duration: number,
-        color: {
-                "h": number,
-                "s": number,
-                "l": number
-            },
+        color: [{
+            "h": number,
+            "s": number,
+            "l": number
+        },
+        {
+            "h": number,
+            "s": number,
+            "l": number
+        },
+        {
+            "h": number,
+            "s": number,
+            "l": number
+        }],
     },
     patternSpeed: number
 }
@@ -83,11 +154,21 @@ export type MultiPole = BasePattern & {
         on: boolean,
         speed: number,
         duration: number,
-        color: {
-                "h": number,
-                "s": number,
-                "l": number
-            },
+        color: [{
+            "h": number,
+            "s": number,
+            "l": number
+        },
+        {
+            "h": number,
+            "s": number,
+            "l": number
+        },
+        {
+            "h": number,
+            "s": number,
+            "l": number
+        }],
     }
 }
 export type VerticalWave = MultiPole

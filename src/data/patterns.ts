@@ -5,21 +5,41 @@ function getDefaultSmallPattern(name: string) {
             on: false,
             speed: 0,
             duration: 0,
-            color: {
+            color: [{
                 "h": 0,
                 "s": 0,
                 "l": 0
             },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            }],
         },
         flashColor: {
             on: false,
             speed: 0,
             duration: 0,
-            color: {
+            color: [{
                 "h": 0,
                 "s": 0,
                 "l": 0
             },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            }],
         },
         patternSpeed: 0,
     }
@@ -29,50 +49,100 @@ function getDefaultSmallPattern(name: string) {
 function getDefaultPattern(name: string) {
     return {
         displayName: name,
-        color: {
+        color: [{
             "h": 0,
             "s": 0,
             "l": 0
         },
+        {
+            "h": 0,
+            "s": 0,
+            "l": 0
+        },
+        {
+            "h": 0,
+            "s": 0,
+            "l": 0
+        }],
         bodyColor: {
             on: false,
             speed: 0,
             duration: 0,
-            color: {
+            color: [{
                 "h": 0,
                 "s": 0,
                 "l": 0
             },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            }],
         },
         ringColor: {
             on: false,
             speed: 0,
             duration: 0,
-            color: {
+            color: [{
                 "h": 0,
                 "s": 0,
                 "l": 0
             },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            }],
         },
         sparkleColor: {
             on: false,
             speed: 0,
             duration: 0,
-            color: {
+            color: [{
                 "h": 0,
                 "s": 0,
                 "l": 0
             },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            }],
         },
         flashColor: {
             on: false,
             speed: 0,
             duration: 0,
-            color: {
+            color: [{
                 "h": 0,
                 "s": 0,
                 "l": 0
             },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            }],
         },
         patternSpeed: 0,
         colorCycleSpeed: 0,
@@ -82,50 +152,100 @@ function getDefaultPattern(name: string) {
 function  getDefaultLargePattern(name: string) {
     return {
         displayName: name,
-        color: {
-            "h": 0,
-            "s": 0,
-            "l": 0
-        },
-        bodyColor: {
-            on: false,
-            speed: 0,
-            duration: 0,
-            color: {
+        color: [{
                 "h": 0,
                 "s": 0,
                 "l": 0
             },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            }],
+        bodyColor: {
+            on: false,
+            speed: 0,
+            duration: 0,
+            color: [{
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            }],
         },
         ringColor: {
             on: false,
             speed: 0,
             duration: 0,
-            color: {
+            color: [{
                 "h": 0,
                 "s": 0,
                 "l": 0
             },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            }],
         },
         sparkleColor: {
             on: false,
             speed: 0,
             duration: 0,
-            color: {
+            color: [{
                 "h": 0,
                 "s": 0,
                 "l": 0
             },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            }],
         },
         flashColor: {
             on: false,
             speed: 0,
             duration: 0,
-            color: {
+            color: [{
                 "h": 0,
                 "s": 0,
                 "l": 0
             },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            }],
         },
         patternSpeed: 0,
         colorCycleSpeed: 0,
@@ -133,11 +253,21 @@ function  getDefaultLargePattern(name: string) {
             on: false,
             speed: 0,
             duration: 0,
-            color: {
+            color: [{
                 "h": 0,
                 "s": 0,
                 "l": 0
             },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            }],
         },
     }
 }

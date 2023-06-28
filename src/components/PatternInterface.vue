@@ -10,8 +10,8 @@
     </div>
     <v-expand-transition>
       <v-card v-show="expand">
-        <v-color-picker :modes="['hsl']" v-model="data.sparkleColor.color"></v-color-picker>
-        {{ data.sparkleColor.color }}
+        <v-color-picker :modes="['hsl']" v-model="data.sparkleColor.color[1]"></v-color-picker>
+        {{ data.displayName }}
       </v-card>
     </v-expand-transition>
   </div>
