@@ -10,15 +10,36 @@
     </div>
     <v-expand-transition>
       <v-card v-show="expand">
-        <v-color-picker :modes="['hsl']" v-model="data.sparkleColor.color[1]"></v-color-picker>
-        {{ data.displayName }}
+
+        <v-switch
+          v-model="linkColors"
+          color="primary"
+          label="Individually Assign Colors"
+        ></v-switch>
+        <v-color-picker 
+          :modes="['hsl']" 
+          v-model="masterColor"
+        ></v-color-picker>
+        <div v-show="linkColors">
+          <v-color-picker 
+            :modes="['hsl']" 
+            v-model="data.sparkleColor.color[1]"
+          ></v-color-picker>
+          <v-color-picker 
+            :modes="['hsl']" 
+            v-model="data.sparkleColor.color[2]"
+          ></v-color-picker>
+        </div>
+        {{ data.sparkleColor.color }}
+
+
       </v-card>
     </v-expand-transition>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import type { SolidColor,
               PulsingColor,
               Confetti,
@@ -45,7 +66,6 @@ const props= defineProps<{
 }>()
 
 const expand = ref(false)
-// const colors = ref({"h": 0, "s": 0, "l": 0})
 
 const emits = defineEmits([
   "update:data",
@@ -54,5 +74,22 @@ const emits = defineEmits([
 const data = computed({
   get: () => props.data,
   set: (value) => emits("update:data", value)
+})
+
+const linkColors = ref(true)
+const masterColor = ref({
+  'h': 0,
+  's': 0,
+  'l': 0
+})
+
+watch(masterColor, (newColor) => {
+  if (linkColors.value) {
+    props.data.sparkleColor.color[0] = newColor
+
+  } else {
+    // check if color is different and dont change it?
+    props.data.sparkleColor.color = [newColor, newColor, newColor]
+  }
 })
 </script>
