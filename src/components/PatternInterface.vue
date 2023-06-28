@@ -10,7 +10,7 @@
     </div>
     <v-expand-transition>
       <v-card v-show="expand">
-
+<!-- note saying progress will be lost on unique colors -->
         <v-switch
           v-model="linkColors"
           color="primary"
@@ -88,7 +88,6 @@ watch(masterColor, (newColor) => {
     props.data.sparkleColor.color[0] = newColor
 
   } else {
-    // check if color is different and dont change it?
     props.data.sparkleColor.color = [newColor, newColor, newColor]
   }
 })
