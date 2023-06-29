@@ -10,17 +10,38 @@
     </div>
     <v-expand-transition>
       <v-card v-show="expand">
-<!-- note saying progress will be lost on unique colors -->
+        <v-dialog
+          v-model="dialog"
+          width="auto"
+        >
+          <v-card>
+            <v-card-text>
+              Linking colors removes any individually assigned colors. Continue?
+            </v-card-text>
+            <v-card-actions class="d-flex justify-center">
+              <v-btn 
+                color="primary" 
+                @click="dialog = false"
+              >OK</v-btn>
+              <v-btn 
+                color="red" 
+                @click="handleDialogCancel()"
+              >Cancel</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
         <v-switch
           v-model="linkColors"
           color="primary"
-          label="Individually Assign Colors"
-        ></v-switch>
+          label="Link Colors"
+          @click="handleDialogOpen()"
+        >
+        </v-switch>
         <v-color-picker 
           :modes="['hsl']" 
           v-model="masterColor"
         ></v-color-picker>
-        <div v-show="linkColors">
+        <div v-show="!linkColors">
           <v-color-picker 
             :modes="['hsl']" 
             v-model="data.sparkleColor.color[1]"
@@ -84,11 +105,22 @@ const masterColor = ref({
 })
 
 watch(masterColor, (newColor) => {
-  if (linkColors.value) {
+  if (!linkColors.value) {
     props.data.sparkleColor.color[0] = newColor
 
   } else {
     props.data.sparkleColor.color = [newColor, newColor, newColor]
   }
 })
+
+const dialog = ref(false)
+function handleDialogOpen() {
+  if (!linkColors.value) {
+    dialog.value = true
+  }
+}
+function handleDialogCancel() {
+  dialog.value = false
+  linkColors.value = false
+}
 </script>
