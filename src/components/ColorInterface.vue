@@ -12,6 +12,7 @@
       </div>
     </div>
     <div v-else>
+      <!-- maybe add a check here and an else for an error code? -->
       <div 
         v-for="(_, index) in Object.values(colors).pop().color" 
         :key="index"

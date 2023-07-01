@@ -145,7 +145,6 @@ function getColorInterfaceColors() {
       colors.push({[colorKeys[i]]: data.value[colorKeys[i]]})
     }
   }
-  console.log(typeof(colors))
   return colors
 }
 </script>
