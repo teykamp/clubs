@@ -140,9 +140,9 @@ const colorInterfaceColors = ref(getColorInterfaceColors())
 function getColorInterfaceColors() {
   let colors: Array<object> = []
   for (let i = 0; i < colorKeys.length; i++) {
-    if (colorKeys[i] in props.data) {
+    if (colorKeys[i] in data.value) {
 
-      colors.push({[colorKeys[i]]: props.data[colorKeys[i]]})
+      colors.push({[colorKeys[i]]: data.value[colorKeys[i]]})
     }
   }
   console.log(typeof(colors))
