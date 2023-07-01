@@ -178,3 +178,12 @@ export type LinearRainbow = BaseSmallPattern
 export type VerticalRainbow = BaseSmallPattern
 export type BPM = BaseSmallPattern
 export type Juggle = BaseSmallPattern
+
+export const colorKeys = [
+    "color",
+    "bodyColor",
+    "ringColor",
+    "sparkleColor",
+    "flashColor",
+    "secondaryColor"
+]

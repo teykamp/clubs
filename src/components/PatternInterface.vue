@@ -38,7 +38,16 @@
           @click="handleDialogOpen()"
         >
         </v-switch>
-        <v-color-picker 
+
+        <div 
+          v-for="(_, index) in colorInterfaceColors"
+          :key="index"
+        >
+          <ColorInterface 
+            v-model:colors="colorInterfaceColors[index]"
+          />
+        </div>
+        <!-- <v-color-picker 
           :modes="['hsl']" 
           v-model="masterColor"
         ></v-color-picker>
@@ -52,7 +61,7 @@
             v-model="data.sparkleColor.color[2]"
           ></v-color-picker>
         </div>
-        {{ data.sparkleColor.color }}
+        {{ data.sparkleColor.color }} -->
 
 
       </v-card>
@@ -61,7 +70,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
+import { ref, computed } from 'vue'
+import ColorInterface from './ColorInterface.vue';
 import type { SolidColor,
               PulsingColor,
               Confetti,
@@ -73,6 +83,7 @@ import type { SolidColor,
               BPM,
               Juggle
             } from '@/data/types' 
+import { colorKeys } from '@/data/types'
 
 const props= defineProps<{
   data: SolidColor|
@@ -105,14 +116,14 @@ const masterColor = ref({
   'l': 0
 })
 
-watch(masterColor, (newColor) => {
-  if (!linkColors.value) {
-    props.data.sparkleColor.color[0] = newColor
+// watch(masterColor, (newColor) => {
+//   if (!linkColors.value) {
+//     props.data.sparkleColor.color[0] = newColor
 
-  } else {
-    props.data.sparkleColor.color = [newColor, newColor, newColor]
-  }
-})
+//   } else {
+//     props.data.sparkleColor.color = [newColor, newColor, newColor]
+//   }
+// })
 
 const dialog = ref(false)
 function handleDialogOpen() {
@@ -124,4 +135,21 @@ function handleDialogCancel() {
   dialog.value = false
   linkColors.value = false
 }
+
+const colorInterfaceColors = ref(getColorInterfaceColors())
+function getColorInterfaceColors() {
+  let colors: Array<object> = []
+  for (let i = 0; i < colorKeys.length; i++) {
+    if (colorKeys[i] in props.data) {
+
+      colors.push({[colorKeys[i]]: props.data[colorKeys[i]]})
+    }
+  }
+  console.log(typeof(colors))
+  return colors
+}
 </script>
+
+
+
+colorKeys[i]: props.data[colorKeys[i]]
