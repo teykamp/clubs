@@ -1,11 +1,27 @@
-<!-- have color thing here for 
-  each color option. that way can run v-for.
-  make color list v-model 
-  option to include speed/duration control
--->
-
 <template>
   <div>
+    <div v-if="colors.color">
+      <div 
+        v-for="(_, index) in Object.values(colors).pop()" 
+        :key="index"
+      >
+        <v-color-picker 
+          :modes="['hsl']" 
+          v-model="Object.values(colors).pop()[index]"
+        ></v-color-picker>
+      </div>
+    </div>
+    <div v-else>
+      <div 
+        v-for="(_, index) in Object.values(colors).pop().color" 
+        :key="index"
+      >
+        <v-color-picker 
+          :modes="['hsl']" 
+          v-model="Object.values(colors).pop().color[index]"
+        ></v-color-picker>
+      </div>
+    </div>
     {{ colors }}
   </div>
 </template>
@@ -25,4 +41,5 @@ const colors = computed({
   get: () => props.colors,
   set: (value) => emits("update:colors", value)
 })
+
 </script>
