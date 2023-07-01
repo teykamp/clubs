@@ -13,6 +13,7 @@
         <v-dialog
           v-model="dialog"
           width="auto"
+          persistent
         >
           <v-card>
             <v-card-text>
