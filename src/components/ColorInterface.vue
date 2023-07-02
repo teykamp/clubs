@@ -1,29 +1,39 @@
 <template>
   <div>
-    <div v-if="colors.color">
-      <div 
-        v-for="(_, index) in Object.values(colors).pop()" 
-        :key="index"
-      >
-        <v-color-picker 
-          :modes="['hsl']" 
-          v-model="Object.values(colors).pop()[index]"
-        ></v-color-picker>
+    <v-container class="d-inline">
+      <div v-if="colors.color">
+        <v-col 
+          v-for="(_, index) in Object.values(colors).pop()" 
+          :key="index"
+        >
+          <v-color-picker 
+            :modes="['hsl']"
+            :show-swatches="true"
+            :hide-inputs="true"
+            :hide-sliders="true"
+            :hide-canvas="true"
+            v-model="Object.values(colors).pop()[index]"
+          ></v-color-picker>
+        </v-col>
       </div>
-    </div>
-    <div v-else>
-      <!-- maybe add a check here and an else for an error code? -->
-      <div 
-        v-for="(_, index) in Object.values(colors).pop().color" 
-        :key="index"
-      >
-        <v-color-picker 
-          :modes="['hsl']" 
-          v-model="Object.values(colors).pop().color[index]"
-        ></v-color-picker>
+      <div v-else>
+        <!-- maybe add a check here and an else for an error code? -->
+        <v-col 
+          v-for="(_, index) in Object.values(colors).pop().color" 
+          :key="index"
+        >
+          <v-color-picker 
+            :modes="['hsl']"
+            :show-swatches="true"
+            :hide-inputs="true"
+            :hide-sliders="true"
+            :hide-canvas="true"
+            v-model="Object.values(colors).pop().color[index]"
+          ></v-color-picker>
+        </v-col>
       </div>
-    </div>
-    {{ colors }}
+      {{ colors }}
+    </v-container>
   </div>
 </template>
 
