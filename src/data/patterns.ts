@@ -5,6 +5,7 @@ function getDefaultSmallPattern(name: string) {
             on: false,
             speed: 0,
             duration: 0,
+            linkColors: true,
             color: [{
                 "h": 0,
                 "s": 0,
@@ -30,6 +31,7 @@ function getDefaultSmallPattern(name: string) {
             on: false,
             speed: 0,
             duration: 0,
+            linkColors: true,
             color: [{
                 "h": 0,
                 "s": 0,
@@ -59,6 +61,7 @@ function getDefaultSmallPattern(name: string) {
 function getDefaultPattern(name: string) {
     return {
         displayName: name,
+        linkColors: true,
         color: [{
             "h": 0,
             "s": 0,
@@ -83,6 +86,7 @@ function getDefaultPattern(name: string) {
             on: false,
             speed: 0,
             duration: 0,
+            linkColors: true,
             color: [{
                 "h": 0,
                 "s": 0,
@@ -108,6 +112,7 @@ function getDefaultPattern(name: string) {
             on: false,
             speed: 0,
             duration: 0,
+            linkColors: true,
             color: [{
                 "h": 0,
                 "s": 0,
@@ -133,6 +138,7 @@ function getDefaultPattern(name: string) {
             on: false,
             speed: 0,
             duration: 0,
+            linkColors: true,
             color: [{
                 "h": 0,
                 "s": 0,
@@ -158,6 +164,7 @@ function getDefaultPattern(name: string) {
             on: false,
             speed: 0,
             duration: 0,
+            linkColors: true,
             color: [{
                 "h": 0,
                 "s": 0,
@@ -211,6 +218,7 @@ function  getDefaultLargePattern(name: string) {
             on: false,
             speed: 0,
             duration: 0,
+            linkColors: true,
             color: [{
                 "h": 0,
                 "s": 0,
@@ -236,6 +244,7 @@ function  getDefaultLargePattern(name: string) {
             on: false,
             speed: 0,
             duration: 0,
+            linkColors: true,
             color: [{
                 "h": 0,
                 "s": 0,
@@ -261,6 +270,7 @@ function  getDefaultLargePattern(name: string) {
             on: false,
             speed: 0,
             duration: 0,
+            linkColors: true,
             color: [{
                 "h": 0,
                 "s": 0,
@@ -286,6 +296,7 @@ function  getDefaultLargePattern(name: string) {
             on: false,
             speed: 0,
             duration: 0,
+            linkColors: true,
             color: [{
                 "h": 0,
                 "s": 0,
@@ -313,6 +324,7 @@ function  getDefaultLargePattern(name: string) {
             on: false,
             speed: 0,
             duration: 0,
+            linkColors: true,
             color: [{
                 "h": 0,
                 "s": 0,

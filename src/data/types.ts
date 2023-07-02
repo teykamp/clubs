@@ -1,5 +1,6 @@
 type BasePattern = {
     displayName: string,
+    linkColors: boolean,
     color: [{
         "h": number,
         "s": number,
@@ -25,6 +26,7 @@ type BasePattern = {
         on: boolean,
         speed: number,
         duration: number,
+        linkColors: boolean,
         color: [{
                 "h": number,
                 "s": number,
@@ -50,6 +52,7 @@ type BasePattern = {
         on: boolean,
         speed: number,
         duration: number,
+        linkColors: boolean,
         color: [{
             "h": number,
             "s": number,
@@ -75,6 +78,7 @@ type BasePattern = {
         on: boolean,
         speed: number,
         duration: number,
+        linkColors: boolean,
         color: [{
             "h": number,
             "s": number,
@@ -100,6 +104,7 @@ type BasePattern = {
         on: boolean,
         speed: number,
         duration: number,
+        linkColors: boolean,
         color: [{
             "h": number,
             "s": number,
@@ -131,6 +136,7 @@ type BaseSmallPattern = {
         on: boolean,
         speed: number,
         duration: number,
+        linkColors: boolean,
         color: [{
             "h": number,
             "s": number,
@@ -156,6 +162,7 @@ type BaseSmallPattern = {
         on: boolean,
         speed: number,
         duration: number,
+        linkColors: boolean,
         color: [{
             "h": number,
             "s": number,
@@ -189,6 +196,7 @@ export type MultiPole = BasePattern & {
         on: boolean,
         speed: number,
         duration: number,
+        linkColors: boolean,
         color: [{
             "h": number,
             "s": number,
