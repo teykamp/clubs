@@ -14,6 +14,11 @@ type BasePattern = {
         "h": number,
         "s": number,
         "l": number
+    },
+    {
+        "h": number,
+        "s": number,
+        "l": number
     }
 ],
     bodyColor: {
@@ -21,6 +26,11 @@ type BasePattern = {
         speed: number,
         duration: number,
         color: [{
+                "h": number,
+                "s": number,
+                "l": number
+            },
+            {
                 "h": number,
                 "s": number,
                 "l": number
@@ -54,6 +64,11 @@ type BasePattern = {
             "h": number,
             "s": number,
             "l": number
+        },
+        {
+            "h": number,
+            "s": number,
+            "l": number
         }],
     },
     sparkleColor: {
@@ -74,6 +89,11 @@ type BasePattern = {
             "h": number,
             "s": number,
             "l": number
+        },
+        {
+            "h": number,
+            "s": number,
+            "l": number
         }],
     },
     flashColor: {
@@ -81,6 +101,11 @@ type BasePattern = {
         speed: number,
         duration: number,
         color: [{
+            "h": number,
+            "s": number,
+            "l": number
+        },
+        {
             "h": number,
             "s": number,
             "l": number
@@ -120,6 +145,11 @@ type BaseSmallPattern = {
             "h": number,
             "s": number,
             "l": number
+        },
+        {
+            "h": number,
+            "s": number,
+            "l": number
         }],
     },
     flashColor: {
@@ -127,6 +157,11 @@ type BaseSmallPattern = {
         speed: number,
         duration: number,
         color: [{
+            "h": number,
+            "s": number,
+            "l": number
+        },
+        {
             "h": number,
             "s": number,
             "l": number
@@ -155,6 +190,11 @@ export type MultiPole = BasePattern & {
         speed: number,
         duration: number,
         color: [{
+            "h": number,
+            "s": number,
+            "l": number
+        },
+        {
             "h": number,
             "s": number,
             "l": number

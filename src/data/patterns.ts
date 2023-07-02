@@ -19,6 +19,11 @@ function getDefaultSmallPattern(name: string) {
                 "h": 0,
                 "s": 0,
                 "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
             }],
         },
         flashColor: {
@@ -26,6 +31,11 @@ function getDefaultSmallPattern(name: string) {
             speed: 0,
             duration: 0,
             color: [{
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
                 "h": 0,
                 "s": 0,
                 "l": 0
@@ -63,12 +73,22 @@ function getDefaultPattern(name: string) {
             "h": 0,
             "s": 0,
             "l": 0
+        },
+        {
+            "h": 0,
+            "s": 0,
+            "l": 0
         }],
         bodyColor: {
             on: false,
             speed: 0,
             duration: 0,
             color: [{
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
                 "h": 0,
                 "s": 0,
                 "l": 0
@@ -102,6 +122,11 @@ function getDefaultPattern(name: string) {
                 "h": 0,
                 "s": 0,
                 "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
             }],
         },
         sparkleColor: {
@@ -122,6 +147,11 @@ function getDefaultPattern(name: string) {
                 "h": 0,
                 "s": 0,
                 "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
             }],
         },
         flashColor: {
@@ -129,6 +159,11 @@ function getDefaultPattern(name: string) {
             speed: 0,
             duration: 0,
             color: [{
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
                 "h": 0,
                 "s": 0,
                 "l": 0
@@ -166,12 +201,22 @@ function  getDefaultLargePattern(name: string) {
                 "h": 0,
                 "s": 0,
                 "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
             }],
         bodyColor: {
             on: false,
             speed: 0,
             duration: 0,
             color: [{
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
                 "h": 0,
                 "s": 0,
                 "l": 0
@@ -205,6 +250,11 @@ function  getDefaultLargePattern(name: string) {
                 "h": 0,
                 "s": 0,
                 "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
             }],
         },
         sparkleColor: {
@@ -212,6 +262,11 @@ function  getDefaultLargePattern(name: string) {
             speed: 0,
             duration: 0,
             color: [{
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
                 "h": 0,
                 "s": 0,
                 "l": 0
@@ -245,6 +300,11 @@ function  getDefaultLargePattern(name: string) {
                 "h": 0,
                 "s": 0,
                 "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
             }],
         },
         patternSpeed: 0,
@@ -254,6 +314,11 @@ function  getDefaultLargePattern(name: string) {
             speed: 0,
             duration: 0,
             color: [{
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
                 "h": 0,
                 "s": 0,
                 "l": 0
