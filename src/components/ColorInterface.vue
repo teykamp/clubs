@@ -47,7 +47,7 @@
             @click="handleLinkColors()"
           ></v-btn>
         </v-card-actions>
-        <div v-if="patternType === 'color'" class="d-flex justify-space-around">
+        <div class="d-flex justify-space-around">
           <div 
             v-for="(_, index) in displayColors" 
             :key="index"
@@ -60,8 +60,6 @@
           </div>
         </div>
       </v-card>
-
-      {{  }}
     </v-container>
   </div>
 </template>
@@ -84,13 +82,13 @@ const colors = computed({
 })
 
 const linkColors = ref(true)
-const displayColors = ref()
+const displayColors = ref(props.colors.color.slice(2, -1))
 function handleLinkColors() {
-  // if (linkColors.value) {
-  //   displayColors.value = Object.values(props.colors)[0].slice(2, -1)
-  // } else {
-  //   displayColors.value = Object.values(props.colors)[0].slice(1)
-  // }
+  if (linkColors.value) {
+    displayColors.value = props.colors.color.slice(1)
+  } else {
+    displayColors.value = props.colors.color.slice(2, -1)
+  }
 
   linkColors.value = !linkColors.value
 }

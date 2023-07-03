@@ -44,7 +44,6 @@
           v-for="(_, key) in colorInterfaceColors"
           :key="key"
         >
-        {{ colorInterfaceColors[key] }}
           <ColorInterface 
             v-model:colors="colorInterfaceColors[key]"
             :patternType="key"
