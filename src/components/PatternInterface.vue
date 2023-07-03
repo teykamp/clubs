@@ -3,6 +3,7 @@
     <div class="d-flex justify-end">
       <v-btn
         variant="plain"
+        size="x-large"
         :icon="expand ? 'mdi-arrow-up-drop-circle-outline' : 'mdi-arrow-down-drop-circle-outline'"
         @click="expand = !expand"
       >
@@ -10,7 +11,7 @@
     </div>
     <v-expand-transition>
       <v-card v-show="expand">
-        <v-dialog
+        <!-- <v-dialog
           v-model="dialog"
           width="auto"
           persistent
@@ -37,7 +38,7 @@
           label="Link Colors"
           @click="handleDialogOpen()"
         >
-        </v-switch>
+        </v-switch> -->
 
         <div 
           v-for="(_, index) in colorInterfaceColors"
@@ -109,12 +110,12 @@ const data = computed({
   set: (value) => emits("update:data", value)
 })
 
-const linkColors = ref(true)
-const masterColor = ref({
-  'h': 0,
-  's': 0,
-  'l': 0
-})
+// const linkColors = ref(true)
+// const masterColor = ref({
+//   'h': 0,
+//   's': 0,
+//   'l': 0
+// })
 
 // watch(masterColor, (newColor) => {
 //   if (!linkColors.value) {
@@ -125,16 +126,16 @@ const masterColor = ref({
 //   }
 // })
 
-const dialog = ref(false)
-function handleDialogOpen() {
-  if (!linkColors.value) {
-    dialog.value = true
-  }
-}
-function handleDialogCancel() {
-  dialog.value = false
-  linkColors.value = false
-}
+// const dialog = ref(false)
+// function handleDialogOpen() {
+//   if (!linkColors.value) {
+//     dialog.value = true
+//   }
+// }
+// function handleDialogCancel() {
+//   dialog.value = false
+//   linkColors.value = false
+// }
 
 const colorInterfaceColors = ref(getColorInterfaceColors())
 function getColorInterfaceColors() {
@@ -148,7 +149,3 @@ function getColorInterfaceColors() {
   return colors
 }
 </script>
-
-
-
-colorKeys[i]: props.data[colorKeys[i]]
