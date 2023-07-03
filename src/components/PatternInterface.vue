@@ -41,13 +41,17 @@
         </v-switch> -->
 
         <div 
-          v-for="(_, index) in colorInterfaceColors"
-          :key="index"
+          v-for="(_, key) in colorInterfaceColors"
+          :key="key"
         >
+        {{ colorInterfaceColors[key] }}
           <ColorInterface 
-            v-model:colors="colorInterfaceColors[index]"
+            v-model:colors="colorInterfaceColors[key]"
+            :patternType="key"
           />
         </div>
+
+
         <!-- <v-color-picker 
           :modes="['hsl']" 
           v-model="masterColor"
@@ -139,11 +143,10 @@ const data = computed({
 
 const colorInterfaceColors = ref(getColorInterfaceColors())
 function getColorInterfaceColors() {
-  let colors: Array<object> = []
+  let colors: object = new Object
   for (let i = 0; i < colorKeys.length; i++) {
     if (colorKeys[i] in data.value) {
-
-      colors.push({[colorKeys[i]]: data.value[colorKeys[i]]})
+      colors[colorKeys[i]] = data.value[colorKeys[i]]
     }
   }
   return colors

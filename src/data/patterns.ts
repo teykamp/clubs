@@ -2,7 +2,7 @@ function getDefaultSmallPattern(name: string) {
     return {
         displayName: name,
         sparkleColor: {
-            name: "SparkleColor",
+            name: "Sparkle Color",
             on: false,
             speed: 0,
             duration: 0,
