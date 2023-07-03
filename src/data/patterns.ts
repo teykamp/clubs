@@ -8,6 +8,7 @@ function getDefaultSmallPattern(name: string) {
             linkColors: true,
             color: {
                 name: "Color",
+                linkColors: true,
                 color: [{
                     "h": 0,
                     "s": 0,
@@ -67,6 +68,7 @@ function getDefaultPattern(name: string) {
         linkColors: true,
         color: {
             name: "Color",
+            linkColors: true,
             color: [{
                 "h": 0,
                 "s": 0,
@@ -205,6 +207,7 @@ function  getDefaultLargePattern(name: string) {
         displayName: name,
         color: {
             name: "Color",
+            linkColors: true,
             color: [{
                 "h": 0,
                 "s": 0,

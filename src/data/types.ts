@@ -3,6 +3,7 @@ type BasePattern = {
     linkColors: boolean,
     color: {
         name: string,
+        linkColors: boolean,
         color: [{
             "h": number,
             "s": number,
