@@ -2,34 +2,31 @@ function getDefaultSmallPattern(name: string) {
     return {
         displayName: name,
         sparkleColor: {
+            name: "SparkleColor",
             on: false,
             speed: 0,
             duration: 0,
             linkColors: true,
-            color: {
-                name: "Color",
-                linkColors: true,
-                color: [{
-                    "h": 0,
-                    "s": 0,
-                    "l": 0
-                },
-                {
-                    "h": 0,
-                    "s": 0,
-                    "l": 0
-                },
-                {
-                    "h": 0,
-                    "s": 0,
-                    "l": 0
-                },
-                {
-                    "h": 0,
-                    "s": 0,
-                    "l": 0
-                }]},
-        },
+            color: [{
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            },
+            {
+                "h": 0,
+                "s": 0,
+                "l": 0
+            }]},
         flashColor: {
             name: "Flash Color",
             on: false,
