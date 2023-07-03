@@ -1,28 +1,31 @@
 type BasePattern = {
     displayName: string,
     linkColors: boolean,
-    color: [{
-        "h": number,
-        "s": number,
-        "l": number
-    },
-    {
-        "h": number,
-        "s": number,
-        "l": number
-    },
-    {
-        "h": number,
-        "s": number,
-        "l": number
-    },
-    {
-        "h": number,
-        "s": number,
-        "l": number
-    }
-],
+    color: {
+        name: string,
+        color: [{
+            "h": number,
+            "s": number,
+            "l": number
+        },
+        {
+            "h": number,
+            "s": number,
+            "l": number
+        },
+        {
+            "h": number,
+            "s": number,
+            "l": number
+        },
+        {
+            "h": number,
+            "s": number,
+            "l": number
+        }
+    ]},
     bodyColor: {
+        name: string,
         on: boolean,
         speed: number,
         duration: number,
@@ -49,6 +52,7 @@ type BasePattern = {
             }],
     },
     ringColor: {
+        name: string,
         on: boolean,
         speed: number,
         duration: number,
@@ -75,6 +79,7 @@ type BasePattern = {
         }],
     },
     sparkleColor: {
+        name: string,
         on: boolean,
         speed: number,
         duration: number,
@@ -101,6 +106,7 @@ type BasePattern = {
         }],
     },
     flashColor: {
+        name: string,
         on: boolean,
         speed: number,
         duration: number,
@@ -133,6 +139,7 @@ type BasePattern = {
 type BaseSmallPattern = {
     displayName: string,
     sparkleColor: {
+        name: string,
         on: boolean,
         speed: number,
         duration: number,
@@ -159,6 +166,7 @@ type BaseSmallPattern = {
         }],
     },
     flashColor: {
+        name: string,
         on: boolean,
         speed: number,
         duration: number,
@@ -193,6 +201,7 @@ export type Confetti = BasePattern
 // 
 export type MultiPole = BasePattern & {
     secondaryColor: {
+        name: string,
         on: boolean,
         speed: number,
         duration: number,
