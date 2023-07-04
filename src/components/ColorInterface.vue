@@ -3,17 +3,20 @@
     <v-dialog
       v-model="colorDialog"
       width="auto"
-    >
-      <v-color-picker 
+      >
+      <v-card>
+        <v-color-picker 
         :modes="['hsl']"
         :show-swatches="true"
         :hide-inputs="true"
         :hide-sliders="true"
         :hide-canvas="true"
         v-model="colors.color[colorIndex]"
-      ></v-color-picker>
-      <v-card>
-        
+        elevation="0"
+        swatches-max-height="450"
+        width="400"
+        class="pa-5"
+        ></v-color-picker>
         <v-card-actions class="d-flex justify-center">
           <v-btn 
             color="primary" 
