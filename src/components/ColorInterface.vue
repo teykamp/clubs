@@ -28,13 +28,13 @@
         <v-card-title>{{ colors.name }}</v-card-title>
         <v-card-actions class="ml-6"> 
           <v-btn 
-            :icon="linkColors ? 'mdi-link' : 'mdi-link-off'"
+            :icon="colors.linkColors ? 'mdi-link' : 'mdi-link-off'"
             variant="plain"
             density="compact"
-            @click="linkColors = !linkColors"
+            @click="colors.linkColors = !colors.linkColors"
           ></v-btn>
         </v-card-actions>
-        <div v-if="linkColors" class="d-flex justify-space-around">
+        <div v-if="colors.linkColors" class="d-flex justify-space-around">
           <div 
             v-for="(_, index) in colors.color.slice(1)" 
             :key="index"
@@ -89,5 +89,4 @@ const colors = computed({
 const colorDialog = ref(false)
 const colorIndex = ref(0)
 
-const linkColors = ref(true)
 </script>
