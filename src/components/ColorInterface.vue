@@ -34,6 +34,8 @@
             @click="colors.linkColors = !colors.linkColors"
           ></v-btn>
         </v-card-actions>
+
+        <!-- colors -->
         <div v-if="colors.linkColors" class="d-flex justify-space-around">
           <div 
             v-for="(_, index) in colors.color.slice(1)" 
@@ -64,6 +66,35 @@
             ></v-btn>
           </div>
         </div>
+
+        <!-- sliders -->
+        <div 
+          v-if="colors.speed !== undefined"
+          class="d-flex"
+        >
+          <v-slider 
+            v-model="colors.speed" 
+            class="mx-6" 
+            min="0" 
+            max="10"
+          ></v-slider>
+          <v-card-text>{{ colors.speed.toFixed(1) }}</v-card-text>
+        </div>
+        <div 
+          v-if="colors.duration !== undefined"
+          class="d-flex"
+        >
+          <v-slider 
+            v-model="colors.duration" 
+            class="mx-6" 
+            min="0" 
+            max="10"
+          ></v-slider>
+          <v-card-text>{{ colors.duration.toFixed(1) }}</v-card-text>
+
+
+        </div>
+
       </v-card>
     </v-container>
   </div>
