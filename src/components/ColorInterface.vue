@@ -78,7 +78,7 @@
             min="0" 
             max="10"
           ></v-slider>
-          <v-card-text>{{ colors.speed.toFixed(1) }}</v-card-text>
+          <v-card-text>{{ sliderDisplay(colors.speed) }}</v-card-text>
         </div>
         <div 
           v-if="colors.duration !== undefined"
@@ -90,7 +90,7 @@
             min="0" 
             max="10"
           ></v-slider>
-          <v-card-text>{{ colors.duration.toFixed(1) }}</v-card-text>
+          <v-card-text>{{ sliderDisplay(colors.duration) }}</v-card-text>
 
 
         </div>
@@ -120,4 +120,7 @@ const colors = computed({
 const colorDialog = ref(false)
 const colorIndex = ref(0)
 
+function sliderDisplay(sliderValue: number) {
+  return sliderValue === 0 ? 'Frozen' : sliderValue.toFixed(1)
+}
 </script>
