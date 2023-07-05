@@ -19,7 +19,25 @@
             v-model:colors="colorInterfaceColors[key]"
             :patternType="key"
           />
+        </div>
+                
+        <v-slider 
+          v-model="data.patternSpeed" 
+          class="mx-6" 
+          min="0" 
+          max="10"
+        ></v-slider>
+        <v-card-text>{{ sliderDisplay(data.patternSpeed) }}</v-card-text>
 
+            
+        <div v-if="data.colorCycleSpeed !== undefined">
+          <v-slider
+            v-model="data.colorCycleSpeed" 
+            class="mx-6" 
+            min="0" 
+            max="10"
+          ></v-slider>
+          <v-card-text>{{ sliderDisplay(data.colorCycleSpeed) }}</v-card-text>
         </div>
       </v-card>
     </v-expand-transition>
@@ -74,5 +92,9 @@ function getColorInterfaceColors() {
     }
   }
   return colors
+}
+
+function sliderDisplay(sliderValue: number) {
+  return sliderValue === 0 ? 'Frozen' : sliderValue.toFixed(1)
 }
 </script>

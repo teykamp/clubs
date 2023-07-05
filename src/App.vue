@@ -2,9 +2,8 @@
   <v-app>
     <v-main>
       <v-container class="d-flex justify-center">
-        <v-col></v-col>
-        <v-col cols="6">
-          <v-sheet class="overflow-auto" style="height: 93vh">
+        <v-col xs="10" sm="10" md="11" lg="8" xl="7">
+          <v-sheet class="overflow-auto scrollbar" style="height: 93vh;">
             
             <div 
               v-for="(_, index) in addedPatterns"
@@ -23,7 +22,6 @@
 
           </v-sheet>
         </v-col>
-        <v-col class="d-flex justify-start">
           <v-menu>
             <template v-slot:activator="{ props }">
               <v-btn
@@ -45,7 +43,6 @@
               </v-list-item>
             </v-list>
           </v-menu>
-        </v-col>
       </v-container>
     </v-main>
   </v-app>
@@ -79,3 +76,13 @@ const addedPatterns = ref<(SolidColor|
                           BPM|
                           Juggle)[]>([])
 </script>
+
+<style scoped>
+.scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+</style>
