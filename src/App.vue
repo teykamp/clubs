@@ -11,6 +11,7 @@
             >
               <PatternParent 
                 v-model:title="addedPatterns[index].displayName"
+                @update:delete="deletePattern(index)"
               >
               <!-- probable redo the line above to match patetrn type -->
               <template #name>
@@ -75,6 +76,10 @@ const addedPatterns = ref<(SolidColor|
                           VerticalRainbow|
                           BPM|
                           Juggle)[]>([])
+
+function deletePattern(index: number) {
+  addedPatterns.value.splice(index, 1)
+}
 </script>
 
 <style scoped>
