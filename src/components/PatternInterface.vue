@@ -1,5 +1,11 @@
 <template>
   <div>
+    <div 
+      v-for="chip in getChipDisplay()"
+      :key="chip"
+    >
+      <v-chip color="primary">{{ chip }}</v-chip>
+    </div>
     <div class="d-flex justify-end">
       <v-btn
         variant="plain"
@@ -96,5 +102,33 @@ function getColorInterfaceColors() {
 
 function sliderDisplay(sliderValue: number) {
   return sliderValue === 0 ? 'Frozen' : sliderValue.toFixed(1)
+}
+
+function getChipDisplay() {
+  let chips: string[] = []
+  // added patterns
+  let onCount: number = 0
+  let count: number = 0
+  for (let key in props.data) {
+    if (typeof(props.data[key]) === 'object' && 'on' in props.data[key]) {
+      if (props.data[key].on) onCount++
+      count++
+    }
+  }
+  chips.push(`${onCount}/${count}`)
+
+  // base color if exists
+  if ("color" in props.data) {
+    // do something
+  }
+
+  // speed
+  chips.push(`${sliderDisplay(props.data.patternSpeed)}`)
+
+  // cycleSpeed if exists
+  if ("colorCycleSpeed" in props.data) 
+    chips.push(`${sliderDisplay(props.data.colorCycleSpeed)}`)
+
+  return chips
 }
 </script>
