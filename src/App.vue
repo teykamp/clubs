@@ -29,7 +29,6 @@
                 icon="mdi-plus"
                 color="primary"
                 v-bind="props"
-                class="d-flex float-end"
               >
               </v-btn>
             </template>
