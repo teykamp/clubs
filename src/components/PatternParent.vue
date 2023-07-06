@@ -8,8 +8,9 @@
           class="mt-2"
         ></v-text-field>
       </v-card-title>
-      <slot></slot>
-
+      <v-card-actions>
+        <slot name="name"></slot>
+      </v-card-actions>
     </v-card>
   </v-container>
 </template>

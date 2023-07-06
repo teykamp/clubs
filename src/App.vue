@@ -13,10 +13,11 @@
                 v-model:title="addedPatterns[index].displayName"
               >
               <!-- probable redo the line above to match patetrn type -->
+              <template #name>
                 <PatternInterface
-                  v-model:data="addedPatterns[index]"
-                />
-                <!-- v-model the contents of the pattern type -->
+                    v-model:data="addedPatterns[index]"
+                  />
+              </template>
               </PatternParent> 
             </div>
 
@@ -28,7 +29,7 @@
                 icon="mdi-plus"
                 color="primary"
                 v-bind="props"
-                class="d-fles float-end"
+                class="d-flex float-end"
               >
               </v-btn>
             </template>
