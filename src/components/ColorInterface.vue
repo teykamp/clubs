@@ -44,23 +44,7 @@
           </v-card-actions>
           
           <!-- colors -->
-          <div v-if="!colors.linkColors" class="d-flex justify-space-around mb-2">
-            <v-col 
-              v-for="(_, index) in colors.color.slice(1)" 
-              :key="index"
-            >
-              <v-btn :style="{'background': `hsl(
-                ${colors.color[index+1].h} 
-                ${colors.color[index+1].s*100}% 
-                ${colors.color[index+1].l*100}%
-                )`,
-                'width': '100%'}"
-                @click="colorDialog = true;
-                        colorIndex = index + 1"
-              ></v-btn>
-            </v-col>
-          </div>
-          <div v-else class="mb-2">
+          <div v-if="colors.linkColors" class="d-flex justify-space-around mb-2">
             <v-col 
               v-for="(_, index) in colors.color.slice(2, -1)" 
               :key="index"
@@ -74,6 +58,22 @@
                 'width': '66%'}"
                 @click="colorDialog = true;
                         colorIndex = 0"
+              ></v-btn>
+            </v-col>
+          </div>
+          <div v-else class="mb-2">
+            <v-col 
+              v-for="(_, index) in colors.color.slice(1)" 
+              :key="index"
+            >
+              <v-btn :style="{'background': `hsl(
+                ${colors.color[index+1].h} 
+                ${colors.color[index+1].s*100}% 
+                ${colors.color[index+1].l*100}%
+                )`,
+                'width': '100%'}"
+                @click="colorDialog = true;
+                        colorIndex = index + 1"
               ></v-btn>
             </v-col>
           </div>
