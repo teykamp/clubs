@@ -44,7 +44,7 @@
           </v-card-actions>
           
           <!-- colors -->
-          <div v-if="colors.linkColors" class="d-flex justify-space-around mb-2">
+          <div v-if="colors.linkColors" class="mb-2">
             <v-col 
               v-for="(_, index) in colors.color.slice(2, -1)" 
               :key="index"
@@ -55,13 +55,13 @@
                 ${colors.color[index].s*100}% 
                 ${colors.color[index].l*100}%
                 )`,
-                'width': '66%'}"
+                'width': '45%'}"
                 @click="colorDialog = true;
                         colorIndex = 0"
               ></v-btn>
             </v-col>
           </div>
-          <div v-else class="mb-2">
+          <div v-else class="d-flex justify-space-around mb-2">
             <v-col 
               v-for="(_, index) in colors.color.slice(1)" 
               :key="index"
