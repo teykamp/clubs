@@ -44,7 +44,7 @@
           </v-card-actions>
           
           <!-- colors -->
-          <div v-if="colors.linkColors" class="d-flex justify-space-around mb-2">
+          <div v-if="!colors.linkColors" class="d-flex justify-space-around mb-2">
             <v-col 
               v-for="(_, index) in colors.color.slice(1)" 
               :key="index"
