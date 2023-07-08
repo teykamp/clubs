@@ -123,8 +123,8 @@ function handleOrderButtons(direction: number, index: number) {
 }
 
 function handleAddNewPattern(value: object) {
-  value.id = Date.now(),
-  addedPatterns.value.push(JSON.parse(JSON.stringify(value))),
+  value.id = Date.now()
+  addedPatterns.value.push(JSON.parse(JSON.stringify(value)))
   scrollToBottom()
 }
 </script>
