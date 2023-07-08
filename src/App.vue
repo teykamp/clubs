@@ -4,10 +4,9 @@
       <v-container class="d-flex justify-center">
         <v-col xs="10" sm="10" md="11" lg="8" xl="7">
           <v-sheet class="overflow-auto scrollbar" style="height: 94vh;">
-            
             <div 
               v-for="(pattern, index) in addedPatterns"
-              :key="pattern.displayName"
+              :key="pattern.id"
             >
               <PatternParent 
                 v-model:title="addedPatterns[index].displayName"
@@ -54,8 +53,7 @@
                 v-for="value, pattern in patterns"
                 :key="pattern"
                 :value="pattern"
-                @click="addedPatterns.push(JSON.parse(JSON.stringify(value))),
-                        scrollToBottom()"
+                @click="handleAddNewPattern(value)"
               >
                 <v-list-item-title>{{ pattern }}</v-list-item-title>
               </v-list-item>
@@ -122,6 +120,12 @@ function handleOrderButtons(direction: number, index: number) {
   else {
     console.log("direction not defined in handleOrderButtons()")
   }
+}
+
+function handleAddNewPattern(value: object) {
+  value.id = Date.now(),
+  addedPatterns.value.push(JSON.parse(JSON.stringify(value))),
+  scrollToBottom()
 }
 </script>
 
