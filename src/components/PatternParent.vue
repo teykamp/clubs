@@ -6,9 +6,10 @@
           v-model="title"
           prepend-icon="mdi-rename-box"
           class="mt-2"
-        ></v-text-field>
-      </v-card-title>
-      <v-card-actions>
+          ></v-text-field>
+        </v-card-title>
+        <v-card-actions>
+        <slot name="orderButtons"></slot>
         <v-btn
           icon="mdi-delete"
           color="red"

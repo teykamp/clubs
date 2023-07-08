@@ -6,15 +6,31 @@
           <v-sheet class="overflow-auto scrollbar" style="height: 94vh;">
             
             <div 
-              v-for="(_, index) in addedPatterns"
-              :key="index"
+              v-for="(pattern, index) in addedPatterns"
+              :key="pattern.displayName"
             >
               <PatternParent 
                 v-model:title="addedPatterns[index].displayName"
                 @update:delete="deletePattern(index)"
               >
-              <!-- probable redo the line above to match patetrn type -->
-              <template #name>
+              <template #orderButtons>
+                <v-btn-group variant="outlined">
+                  <v-btn
+                    :disabled="index === 0 ? true: false"
+                    icon="mdi-arrow-up" 
+                    class="mr-0"
+                    @click="handleOrderButtons(-1, index)"
+                  ></v-btn>
+                  <v-btn
+                    :disabled="index === addedPatterns.length -1 ? true: false"
+                    icon="mdi-arrow-down" 
+                    class="ml-0"
+                    @click="handleOrderButtons(1, index)"
+                  ></v-btn>
+                </v-btn-group>
+
+              </template>
+              <template #patternInterface>
                 <PatternInterface
                     v-model:data="addedPatterns[index]"
                   />
@@ -85,6 +101,27 @@ function deletePattern(index: number) {
 const bottomElement = ref()
 function scrollToBottom() {
   bottomElement.value.scrollIntoView({behavior: 'smooth', block: 'end'});
+}
+
+function handleOrderButtons(direction: number, index: number) {
+  // can probably shorten this using direction as the index addition value
+  if (direction === -1) {
+    // can add checking if index out of range here
+    const adjacentIndexValue = addedPatterns.value[index - 1]
+    addedPatterns.value[index - 1] = addedPatterns.value[index]
+    addedPatterns.value[index] = adjacentIndexValue
+  }
+
+  else if (direction === 1) {
+    // can add checking if index out of range here
+    const adjacentIndexValue = addedPatterns.value[index + 1]
+    addedPatterns.value[index + 1] = addedPatterns.value[index]
+    addedPatterns.value[index] = adjacentIndexValue
+  }
+
+  else {
+    console.log("direction not defined in handleOrderButtons()")
+  }
 }
 </script>
 
