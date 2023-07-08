@@ -3,7 +3,7 @@
     <v-main>
       <v-container class="d-flex justify-center">
         <v-col xs="10" sm="10" md="11" lg="8" xl="7">
-          <v-sheet class="overflow-auto scrollbar" style="height: 93vh;">
+          <v-sheet class="overflow-auto scrollbar" style="height: 94vh;">
             
             <div 
               v-for="(_, index) in addedPatterns"
