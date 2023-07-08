@@ -1,5 +1,6 @@
-function getDefaultSmallPattern(name: string) {
+function getDefaultSmallPattern(name: string, id: number) {
     return {
+        id: id,
         displayName: name,
         sparkleColor: {
             name: "Sparkle Color",
@@ -59,8 +60,9 @@ function getDefaultSmallPattern(name: string) {
 }
 
 
-function getDefaultPattern(name: string) {
+function getDefaultPattern(name: string, id: number) {
     return {
+        id: id,
         displayName: name,
         linkColors: true,
         color: {
@@ -199,8 +201,9 @@ function getDefaultPattern(name: string) {
     }
 }
 
-function  getDefaultLargePattern(name: string) {
+function  getDefaultLargePattern(name: string, id: number) {
     return {
+        id: id,
         displayName: name,
         color: {
             name: "Color",
@@ -368,15 +371,18 @@ function  getDefaultLargePattern(name: string) {
 
 
 export const patterns = {
-    "Solid Color": getDefaultPattern("Solid Color"),
-    "Pulsing Color": getDefaultPattern("Pulsing Color"),
-    "Multipole": getDefaultLargePattern("Multipole"),
-    "Confetti": getDefaultLargePattern("Confetti"),
-    "Linear Rainbow": getDefaultSmallPattern("Linear rainbow"),
-    "Vertical Rainbow": getDefaultSmallPattern("Vertical Rainbow"),
-    "Vertical Wave": getDefaultLargePattern("Vertical Wave"),
-    "Torch": getDefaultLargePattern("Torch"),
-    "BPM": getDefaultSmallPattern("BPM"),
-    "Juggle": getDefaultSmallPattern("Juggle"),
+    "Solid Color": getDefaultPattern("Solid Color", getDate()),
+    "Pulsing Color": getDefaultPattern("Pulsing Color", getDate()),
+    "Multipole": getDefaultLargePattern("Multipole", getDate()),
+    "Confetti": getDefaultLargePattern("Confetti", getDate()),
+    "Linear Rainbow": getDefaultSmallPattern("Linear rainbow", getDate()),
+    "Vertical Rainbow": getDefaultSmallPattern("Vertical Rainbow", getDate()),
+    "Vertical Wave": getDefaultLargePattern("Vertical Wave", getDate()),
+    "Torch": getDefaultLargePattern("Torch", getDate()),
+    "BPM": getDefaultSmallPattern("BPM", getDate()),
+    "Juggle": getDefaultSmallPattern("Juggle", getDate()),
 }
     
+function getDate() {
+    return Date.now()
+}

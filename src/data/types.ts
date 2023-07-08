@@ -1,4 +1,5 @@
 type BasePattern = {
+    id: number,
     displayName: string,
     linkColors: boolean,
     color: {
@@ -138,6 +139,7 @@ type BasePattern = {
 }
 
 type BaseSmallPattern = {
+    id: number,
     displayName: string,
     sparkleColor: {
         name: string,
