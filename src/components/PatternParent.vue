@@ -15,7 +15,7 @@
           @click="$emit('update:delete')"
         ></v-btn>
       </v-card-actions>
-        <slot name="name"></slot>
+        <slot name="patternInterface"></slot>
     </v-card>
   </v-container>
 </template>
