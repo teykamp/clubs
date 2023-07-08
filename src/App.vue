@@ -21,7 +21,7 @@
               </template>
               </PatternParent> 
             </div>
-
+            <div ref="bottomElement" style="margin-top: 370px;"></div>
           </v-sheet>
         </v-col>
           <v-menu>
@@ -38,7 +38,8 @@
                 v-for="value, pattern in patterns"
                 :key="pattern"
                 :value="pattern"
-                @click="addedPatterns.push(JSON.parse(JSON.stringify(value)))"
+                @click="addedPatterns.push(JSON.parse(JSON.stringify(value))),
+                        scrollToBottom()"
               >
                 <v-list-item-title>{{ pattern }}</v-list-item-title>
               </v-list-item>
@@ -50,7 +51,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onBeforeUpdate } from 'vue'
 import PatternParent from '@/components/PatternParent.vue'
 import PatternInterface from '@/components/PatternInterface.vue'
 import { patterns } from '@/data/patterns'
@@ -79,6 +80,11 @@ const addedPatterns = ref<(SolidColor|
 
 function deletePattern(index: number) {
   addedPatterns.value.splice(index, 1)
+}
+
+const bottomElement = ref()
+function scrollToBottom() {
+  bottomElement.value.scrollIntoView({behavior: 'smooth', block: 'end'});
 }
 </script>
 
