@@ -51,7 +51,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onBeforeUpdate } from 'vue'
+import { ref } from 'vue'
 import PatternParent from '@/components/PatternParent.vue'
 import PatternInterface from '@/components/PatternInterface.vue'
 import { patterns } from '@/data/patterns'
