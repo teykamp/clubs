@@ -1,12 +1,13 @@
 <template>
   <div>
     <div 
-      v-for="chip in getChipDisplay()"
+      v-for="(chip, index) in getChipDisplay()"
       :key="chip"
     >
-      <v-chip color="primary">{{ chip }}</v-chip>
+      <v-chip color="primary" :prepend-icon="summaryIconList[index]">{{ chip }}</v-chip>
     </div>
 
+    <v-icon>mdi-palette</v-icon>
     <div v-if="'color' in data">
       <div v-if="data.color.linkColors">
         <v-chip :style="{'background': `hsl(
@@ -150,4 +151,6 @@ function getChipDisplay() {
 
   return chips
 }
+
+const summaryIconList = ref(["mdi-puzzle", "mdi-animation", 'mdi-speedometer'])
 </script>
