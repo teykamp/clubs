@@ -1,36 +1,47 @@
 <template>
   <div>
-    <div 
-      v-for="(chip, index) in getChipDisplay()"
-      :key="chip"
-    >
-      <v-chip color="primary" :prepend-icon="summaryIconList[index]">{{ chip }}</v-chip>
-    </div>
-
-    <v-icon>mdi-palette</v-icon>
-    <div v-if="'color' in data">
-      <div v-if="data.color.linkColors">
-        <v-chip :style="{'background': `hsl(
+    <v-row class="d-flex align-start ml-3 mt-1">
+      <div 
+        v-for="(chip, index) in getChipDisplay()"
+        :key="chip"
+      >
+        <v-chip
+          color="primary" 
+          :prepend-icon="summaryIconList[index]"
+          class="ml-1"
+        >{{ chip }}</v-chip>
+      </div>
+      <v-divider vertical class="ml-2"></v-divider>
+      <div 
+        v-if="'color' in data"
+        class="ml-2"  
+      >
+        <div v-if="data.color.linkColors">
+          <v-chip
+            class="ml-1"
+            :style="{'background': `hsl(
                   ${data.color.color[0].h} 
                   ${data.color.color[0].s*100}% 
                   ${data.color.color[0].l*100}%
                   )`,
                   'width': '30px'}"
-        ></v-chip>
+          ></v-chip>
+        </div>
+        <div v-else>
+          <v-chip
+            v-for="color in data.color.color.slice(1)"
+            :key="color"
+            class="ml-1"
+            :style="{'background': `hsl(
+                    ${color.h} 
+                    ${color.s*100}% 
+                    ${color.l*100}%
+                    )`,
+                    'width': '30px'}"
+          ></v-chip>
+        </div>
       </div>
-      <div v-else>
-        <v-chip
-          v-for="color in data.color.color.slice(1)"
-          :key="color"
-          :style="{'background': `hsl(
-                  ${color.h} 
-                  ${color.s*100}% 
-                  ${color.l*100}%
-                  )`,
-                  'width': '30px'}"
-        ></v-chip>
-      </div>
-    </div>
+    </v-row>
     <div class="d-flex justify-end">
       <v-btn
         variant="plain"
