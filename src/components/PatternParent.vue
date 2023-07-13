@@ -1,18 +1,27 @@
 <template>
   <v-container>
     <v-card>
-      <v-card-title>
-        {{ title }}
-      </v-card-title>
-      <v-card-actions>
-        <v-btn icon="mdi-pencil" @click="titleDialog = !titleDialog"></v-btn>
-        <slot name="orderButtons"></slot>
-        <v-btn
-          icon="mdi-delete"
-          color="red"
-          @click="$emit('update:delete')"
-        ></v-btn>
-      </v-card-actions>
+      <v-container class="d-inline-flex">
+        <!-- add breakpoint here -->
+            <v-card-title class="text-truncate" style="max-width: 65%">
+              {{ title }}
+            </v-card-title>
+            <v-col style="margin-top: -16px; margin-left: -10px; margin-right: -10px">
+              <v-card-actions>
+                <v-btn 
+                  icon="mdi-pencil"
+                  @click="titleDialog = !titleDialog"
+                ></v-btn>
+                <v-spacer></v-spacer>
+                <slot name="orderButtons"></slot>
+                <v-btn
+                  icon="mdi-delete"
+                  color="red"
+                  @click="$emit('update:delete')"
+                ></v-btn>
+              </v-card-actions>
+            </v-col>
+      </v-container>
       <slot name="patternInterface"></slot>
     </v-card>
 
@@ -39,8 +48,6 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-
-
   </v-container>
 </template>
 

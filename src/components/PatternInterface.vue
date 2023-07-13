@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row class="d-flex align-start ml-3 mt-1">
+    <v-row class="d-flex align-start ml-3">
       <div 
         v-for="(chip, index) in getChipDisplay()"
         :key="chip"
@@ -11,7 +11,12 @@
           class="ml-1"
         >{{ chip }}</v-chip>
       </div>
-      <v-divider vertical class="ml-2"></v-divider>
+      <v-divider
+        v-if="data.color"
+        vertical 
+        class="ml-2" 
+        style="max-height: 30px;"
+      ></v-divider>
       <div 
         v-if="'color' in data"
         class="ml-2"  
@@ -41,16 +46,18 @@
           ></v-chip>
         </div>
       </div>
+      <v-spacer></v-spacer>
+        <div class="mb-3">
+          <v-btn
+            class="mr-3"
+            variant="plain"
+            size="x-large"
+            :icon="expand ? 'mdi-arrow-up-drop-circle-outline' : 'mdi-arrow-down-drop-circle-outline'"
+            @click="expand = !expand"
+            >
+          </v-btn>
+        </div>
     </v-row>
-    <div class="d-flex justify-end">
-      <v-btn
-        variant="plain"
-        size="x-large"
-        :icon="expand ? 'mdi-arrow-up-drop-circle-outline' : 'mdi-arrow-down-drop-circle-outline'"
-        @click="expand = !expand"
-      >
-      </v-btn>
-    </div>
     <v-expand-transition>
       <v-card v-show="expand">
         <div 
