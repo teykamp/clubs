@@ -70,24 +70,32 @@
           />
         </div>
                 
-        <v-slider 
-          v-model="data.patternSpeed" 
-          class="mx-6" 
-          min="0" 
-          max="10"
-        ></v-slider>
-        <v-card-text>{{ sliderDisplay(data.patternSpeed) }}</v-card-text>
-
-            
-        <div v-if="data.colorCycleSpeed !== undefined">
-          <v-slider
-            v-model="data.colorCycleSpeed" 
-            class="mx-6" 
-            min="0" 
-            max="10"
-          ></v-slider>
-          <v-card-text>{{ sliderDisplay(data.colorCycleSpeed) }}</v-card-text>
-        </div>
+        <v-row class="d-flex justify-center">
+          <v-col cols="6">
+            <v-slider 
+              v-model="data.patternSpeed"
+              inverse-label
+              :prependIcon="summaryIconList[1]"
+              class="mx-6" 
+              min="0" 
+              max="10"
+              :label="sliderDisplay(data.patternSpeed)"
+            ></v-slider>
+          </v-col>
+          <v-col 
+            v-if="data.colorCycleSpeed !== undefined"
+          >
+            <v-slider
+              inverse-label
+              v-model="data.colorCycleSpeed"
+              :prependIcon="summaryIconList[2]"
+              class="mx-6" 
+              min="0" 
+              max="10"
+              :label="sliderDisplay(data.colorCycleSpeed)"
+            ></v-slider>
+          </v-col>
+        </v-row>
       </v-card>
     </v-expand-transition>
   </div>
@@ -108,6 +116,7 @@ import type { SolidColor,
               Juggle
             } from '@/data/types' 
 import { colorKeys } from '@/data/types'
+import { sliderDisplay } from '@/functions/sliderDisplay'
 
 const props= defineProps<{
   data: SolidColor|
@@ -143,10 +152,6 @@ function getColorInterfaceColors() {
   return colors
 }
 
-function sliderDisplay(sliderValue: number) {
-  return sliderValue === 0 ? 'Frozen' : sliderValue.toFixed(1)
-}
-
 function getChipDisplay() {
   let chips: string[] = []
   // added patterns (puzzle icon)
@@ -170,5 +175,5 @@ function getChipDisplay() {
   return chips
 }
 
-const summaryIconList = ref(["mdi-puzzle", "mdi-animation", 'mdi-speedometer'])
+const summaryIconList = ref(["mdi-puzzle", 'mdi-speedometer', "mdi-animation"])
 </script>
