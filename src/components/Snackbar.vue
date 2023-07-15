@@ -2,7 +2,7 @@
   <div>
     <v-snackbar 
       v-model="showSnackbar"
-      :color="color ||  'success'"
+      :color="color"
     >
       <slot name="content"></slot>
     </v-snackbar>
@@ -15,7 +15,7 @@ import { computed } from 'vue'
 const props = defineProps<{
   color: {
     type: string,
-    required: false
+    default: "success",
   },
   showSnackbar: boolean,
 }>()
