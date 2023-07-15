@@ -6,8 +6,27 @@
         <v-btn
           v-if="appStatus != appStatusEnum.HOME"
           icon="mdi-arrow-left"
-          @click="appStatus = appStatusEnum.HOME, addedPatterns = []"
+          @click="displayBackButtonDialog = true"
         ></v-btn>
+        <Dialog v-model:showDialog="displayBackButtonDialog">
+          <template #content>
+            <h4 class="pt-8 px-8">You have unsaved changes that will be lost if you exit!</h4>
+          </template>
+          <template #actions>
+            <v-btn
+              color="red"
+              @click="displayBackButtonDialog = false, appStatus = appStatusEnum.HOME, addedPatterns = []"
+            >Proceed</v-btn>
+            <v-btn
+              color="primary"
+              @click="displayBackButtonDialog = false"
+            >Cancel</v-btn>
+            <v-btn
+              color="success"
+              @click="handleSubmitClick()"
+            >Copy to Clipboard</v-btn>
+          </template>
+        </Dialog>
         <v-col xs="10" sm="10" md="11" lg="8" xl="7">
           <v-sheet v-if="appStatus === appStatusEnum.HOME" class="d-flex justify-center mt-8">   
             <v-btn
@@ -102,6 +121,7 @@ import { ref } from 'vue'
 import PatternParent from '@/components/PatternParent.vue'
 import PatternInterface from '@/components/PatternInterface.vue'
 import Snackbar from './components/Snackbar.vue'
+import Dialog from './components/Dialog.vue'
 import { patterns } from '@/data/patterns'
 import type { SolidColor,
               PulsingColor,
@@ -165,6 +185,8 @@ const appStatusEnum = {
   HOME: "home",
 };
 const appStatus = ref(appStatusEnum.HOME)
+
+const displayBackButtonDialog = ref(false)
 </script>
 
 <style scoped>
