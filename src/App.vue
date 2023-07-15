@@ -2,8 +2,32 @@
   <v-app>
     <v-main>
       <v-container class="d-flex justify-center">
+        <!-- add danger if addedpatterns.length "work lost. click here to copy to clipboard/export" -->
+        <v-btn
+          v-if="appStatus != appStatusEnum.HOME"
+          icon="mdi-arrow-left"
+          @click="appStatus = appStatusEnum.HOME"
+        ></v-btn>
         <v-col xs="10" sm="10" md="11" lg="8" xl="7">
-          <v-sheet class="overflow-auto scrollbar" style="height: 94vh;">
+          <v-sheet v-if="appStatus === appStatusEnum.HOME" class="d-flex justify-center mt-8">   
+            <v-btn
+              class="ma-2"
+              prepend-icon="mdi-plus"
+              @click="appStatus = appStatusEnum.CREATE"
+            >Create New Project</v-btn>
+
+            <!-- this should open a pop-up to go through steps of importing -->
+            <v-btn
+              class="ma-2"
+              prepend-icon="mdi-import"
+              @click="appStatus = appStatusEnum.IMPORT"
+            >Import Existing Project</v-btn>
+          </v-sheet>
+          <v-sheet 
+            v-if="appStatus !== appStatusEnum.HOME"
+            class="overflow-auto scrollbar"
+            style="height: 94vh;" 
+          >
             <div 
               v-for="(pattern, index) in addedPatterns"
               :key="pattern.id"
@@ -43,7 +67,7 @@
             <div ref="bottomElement" style="margin-top: 370px;"></div>
           </v-sheet>
         </v-col>
-          <v-menu>
+          <v-menu v-if="appStatus !== appStatusEnum.HOME">
             <template v-slot:activator="{ props }">
               <v-btn
                 icon="mdi-plus"
@@ -135,6 +159,12 @@ function handleSubmitClick() {
   navigator.clipboard.writeText(JSON.stringify(addedPatterns.value))
   showSubmitSnackbar.value = true
 }
+const appStatusEnum = {
+  CREATE: "create",
+  IMPORT: "import",
+  HOME: "home",
+};
+const appStatus = ref(appStatusEnum.HOME)
 </script>
 
 <style scoped>
