@@ -36,6 +36,10 @@
               </template>
               </PatternParent> 
             </div>
+            <v-btn
+              v-if="addedPatterns.length"
+              @click="handleSubmitClick()"
+            >Submit</v-btn>
             <div ref="bottomElement" style="margin-top: 370px;"></div>
           </v-sheet>
         </v-col>
@@ -59,6 +63,11 @@
               </v-list-item>
             </v-list>
           </v-menu>
+          <Snackbar v-model:showSnackbar="showSubmitSnackbar">
+            <template #content>
+              JSON Template Copied to Clipboard
+            </template>
+          </Snackbar>
       </v-container>
     </v-main>
   </v-app>
@@ -68,6 +77,7 @@
 import { ref } from 'vue'
 import PatternParent from '@/components/PatternParent.vue'
 import PatternInterface from '@/components/PatternInterface.vue'
+import Snackbar from './components/Snackbar.vue'
 import { patterns } from '@/data/patterns'
 import type { SolidColor,
               PulsingColor,
@@ -117,6 +127,13 @@ function handleAddNewPattern(value: object) {
   value.id = Date.now()
   addedPatterns.value.push(JSON.parse(JSON.stringify(value)))
   scrollToBottom()
+}
+
+const showSubmitSnackbar = ref(false)
+
+function handleSubmitClick() {
+  navigator.clipboard.writeText(JSON.stringify(addedPatterns.value))
+  showSubmitSnackbar.value = true
 }
 </script>
 
