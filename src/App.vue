@@ -102,21 +102,12 @@ function scrollToBottom() {
 }
 
 function handleOrderButtons(direction: number, index: number) {
-  // can probably shorten this using direction as the index addition value
-  if (direction === -1) {
-    // can add checking if index out of range here
-    const adjacentIndexValue = addedPatterns.value[index - 1]
-    addedPatterns.value[index - 1] = addedPatterns.value[index]
+
+  if ([-1, 1].includes(direction)) {
+    const adjacentIndexValue = addedPatterns.value[index + direction]
+    addedPatterns.value[index + direction] = addedPatterns.value[index]
     addedPatterns.value[index] = adjacentIndexValue
   }
-
-  else if (direction === 1) {
-    // can add checking if index out of range here
-    const adjacentIndexValue = addedPatterns.value[index + 1]
-    addedPatterns.value[index + 1] = addedPatterns.value[index]
-    addedPatterns.value[index] = adjacentIndexValue
-  }
-
   else {
     console.log("direction not defined in handleOrderButtons()")
   }
