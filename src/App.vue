@@ -6,7 +6,7 @@
         <v-btn
           v-if="appStatus != appStatusEnum.HOME"
           icon="mdi-arrow-left"
-          @click="appStatus = appStatusEnum.HOME"
+          @click="appStatus = appStatusEnum.HOME, addedPatterns = []"
         ></v-btn>
         <v-col xs="10" sm="10" md="11" lg="8" xl="7">
           <v-sheet v-if="appStatus === appStatusEnum.HOME" class="d-flex justify-center mt-8">   
