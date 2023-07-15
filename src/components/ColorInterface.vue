@@ -14,12 +14,12 @@
           width="400"
           class="pa-5"
           ></v-color-picker>
-          <v-card-actions class="d-flex justify-center">
-            <v-btn
-              color="primary"
-              @click="colorDialog = false"
-            >OK</v-btn>
-          </v-card-actions>
+        </template>
+        <template #actions>
+          <v-btn
+            color="primary"
+            @click="colorDialog = false"
+          >OK</v-btn>
         </template>
     </Dialog>
 
