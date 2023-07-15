@@ -1,30 +1,27 @@
 <template>
   <div>
-    <v-dialog
-      v-model="colorDialog"
-      width="auto"
-      >
-      <v-card>
-        <v-color-picker
-        :modes="['hsl']"
-        :show-swatches="true"
-        :hide-inputs="true"
-        :hide-sliders="true"
-        :hide-canvas="true"
-        v-model="colors.color[colorIndex]"
-        elevation="0"
-        swatches-max-height="450"
-        width="400"
-        class="pa-5"
-        ></v-color-picker>
-        <v-card-actions class="d-flex justify-center">
-          <v-btn
-            color="primary"
-            @click="colorDialog = false"
-          >OK</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+    <Dialog v-model:showDialog="colorDialog">
+        <template #content>
+          <v-color-picker
+          :modes="['hsl']"
+          :show-swatches="true"
+          :hide-inputs="true"
+          :hide-sliders="true"
+          :hide-canvas="true"
+          v-model="colors.color[colorIndex]"
+          elevation="0"
+          swatches-max-height="450"
+          width="400"
+          class="pa-5"
+          ></v-color-picker>
+          <v-card-actions class="d-flex justify-center">
+            <v-btn
+              color="primary"
+              @click="colorDialog = false"
+            >OK</v-btn>
+          </v-card-actions>
+        </template>
+    </Dialog>
 
     <v-card elevation="0" class="mx-6">
       <v-checkbox
@@ -119,6 +116,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { sliderDisplay } from '@/functions/sliderDisplay'
+import Dialog from './Dialog.vue';
 
 const props= defineProps<{
   colors: object,
