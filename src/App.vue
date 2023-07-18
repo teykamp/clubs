@@ -2,7 +2,6 @@
   <v-app>
     <v-main>
       <v-container class="d-flex justify-center">
-        <!-- add danger if addedpatterns.length "work lost. click here to copy to clipboard/export" -->
         <v-btn
           v-if="appStatus != appStatusEnum.HOME"
           icon="mdi-arrow-left"
@@ -10,7 +9,7 @@
         ></v-btn>
         <Dialog v-model:showDialog="displayBackButtonDialog">
           <template #content>
-            <h4 class="pt-8 px-8">You have unsaved changes that will be lost if you exit!</h4>
+            <h4>You have unsaved changes that will be lost if you exit!</h4>
           </template>
           <template #actions>
             <v-btn
@@ -34,14 +33,50 @@
               prepend-icon="mdi-plus"
               @click="appStatus = appStatusEnum.CREATE"
             >Create New Project</v-btn>
-
-            <!-- this should open a pop-up to go through steps of importing -->
             <v-btn
               class="ma-2"
               prepend-icon="mdi-import"
-              @click="appStatus = appStatusEnum.IMPORT"
+              @click="displayImportDialog = true"
             >Import Existing Project</v-btn>
           </v-sheet>
+          <Dialog v-model:showDialog="displayImportDialog">
+            <template #content>
+              <p>
+                Paste your JSON into this box to import:
+              </p>
+
+              <v-textarea
+                v-model="importPasteBoxContent"
+                label="Paste JSON Here" 
+                variant="outlined" 
+                rows="6"
+                style="min-width: 600px"
+                class="mt-4"
+              ></v-textarea>
+              <v-btn 
+                color="primary" 
+                size="x-small" 
+                style="margin-top: -40px"
+                variant="text"
+                @click="importPasteBoxContent = ''"
+              >Clear</v-btn>
+            </template>
+            <template #actions>
+              <!-- add other un-disable option when uploading file -->
+              <!-- have submit run a checking function -->
+              <v-btn
+                color="success"
+                :disabled="importPasteBoxContent === ''"
+                @click="appStatus = appStatusEnum.IMPORT,
+                        displayImportDialog = false, 
+                        addedPatterns = JSON.parse(importPasteBoxContent)"
+              >Import</v-btn>
+              <v-btn
+                color="red"
+                @click="displayImportDialog = false"
+              >Cancel</v-btn>
+            </template>
+          </Dialog>
           <v-sheet 
             v-if="appStatus !== appStatusEnum.HOME"
             class="overflow-auto scrollbar"
@@ -187,6 +222,9 @@ const appStatusEnum = {
 const appStatus = ref(appStatusEnum.HOME)
 
 const displayBackButtonDialog = ref(false)
+const displayImportDialog = ref(false)
+
+const importPasteBoxContent = ref("")
 </script>
 
 <style scoped>
