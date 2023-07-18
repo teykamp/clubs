@@ -159,6 +159,7 @@ import PatternInterface from '@/components/PatternInterface.vue'
 import Snackbar from './components/Snackbar.vue'
 import Dialog from './components/Dialog.vue'
 import { patterns } from '@/data/patterns'
+import { appStatusEnum } from '@/data/appStatusEnum'
 import type { SolidColor,
               PulsingColor,
               Confetti,
@@ -215,11 +216,7 @@ function handleSubmitClick() {
   navigator.clipboard.writeText(JSON.stringify(addedPatterns.value))
   showSubmitSnackbar.value = true
 }
-const appStatusEnum = {
-  CREATE: "create",
-  IMPORT: "import",
-  HOME: "home",
-};
+
 const appStatus = ref(appStatusEnum.HOME)
 
 const displayBackButtonDialog = ref(false)
