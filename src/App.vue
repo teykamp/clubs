@@ -5,7 +5,7 @@
         <v-btn
           v-if="appStatus != appStatusEnum.HOME"
           icon="mdi-arrow-left"
-          @click="displayBackButtonDialog = true"
+          @click="displayBackButtonDialogHelper()"
         ></v-btn>
         <Dialog v-model:showDialog="displayBackButtonDialog">
           <template #content>
@@ -222,6 +222,16 @@ const appStatusEnum = {
 const appStatus = ref(appStatusEnum.HOME)
 
 const displayBackButtonDialog = ref(false)
+function displayBackButtonDialogHelper() {
+  if (addedPatterns.value.length) {
+    displayBackButtonDialog.value = true
+  }
+
+  else {
+    appStatus.value = appStatusEnum.HOME
+  }
+}
+
 const displayImportDialog = ref(false)
 
 const importPasteBoxContent = ref("")
