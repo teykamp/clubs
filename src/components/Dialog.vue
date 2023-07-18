@@ -5,7 +5,9 @@
       width="auto"
       >
       <v-card>
-        <slot name="content"></slot>
+        <div class="pt-8 px-8">
+          <slot name="content"></slot>
+        </div>
         <v-card-actions class="d-flex justify-center">
          <slot name="actions"></slot>
         </v-card-actions>
