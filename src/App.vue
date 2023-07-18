@@ -69,7 +69,8 @@
                 :disabled="importPasteBoxContent === ''"
                 @click="appStatus = appStatusEnum.IMPORT,
                         displayImportDialog = false, 
-                        addedPatterns = JSON.parse(importPasteBoxContent)"
+                        addedPatterns = JSON.parse(importPasteBoxContent),
+                        importPasteBoxContent = ''"
               >Import</v-btn>
               <v-btn
                 color="red"
