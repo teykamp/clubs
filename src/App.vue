@@ -64,7 +64,6 @@
             </template>
             <template #actions>
               <!-- add other un-disable option when uploading file -->
-              <!-- have submit run a checking function -->
               <v-btn
                 color="success"
                 :disabled="importPasteBoxContent === ''"
