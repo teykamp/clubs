@@ -60,7 +60,8 @@
                 variant="text"
                 @click="importPasteBoxContent = ''"
               >Clear</v-btn>
-              <p style="color: red; margin-top: -25px" class="text-overline">{{ importPasteBoxError }}</p>
+              <v-alert v-if="showImportPasteBoxErrorDialog" type="warning" :text="importPasteBoxError">
+              </v-alert>
             </template>
             <template #actions>
               <!-- add other un-disable option when uploading file -->
@@ -69,11 +70,15 @@
                 :disabled="importPasteBoxContent === ''"
                 @click="handleClickImportButton()"
               >Import</v-btn>
+              <v-btn 
+                color="primary"
+              >Upload File</v-btn>
               <v-btn
                 color="red"
                 @click="displayImportDialog = false,
                         importPasteBoxError = '',
-                        importPasteBoxContent = ''"
+                        importPasteBoxContent = '',
+                        showImportPasteBoxErrorDialog = false"
               >Cancel</v-btn>
             </template>
           </Dialog>
@@ -249,12 +254,14 @@ const displayImportDialog = ref(false)
 
 const importPasteBoxContent = ref("")
 const importPasteBoxError = ref("")
+const showImportPasteBoxErrorDialog = ref(false)
 
 function handleClickImportButton() {
   try {
     addedPatterns.value = JSON.parse(importPasteBoxContent.value)
   } catch (error) {
-    importPasteBoxError.value = error
+    showImportPasteBoxErrorDialog.value = true
+    importPasteBoxError.value = String(error)
     return
   }
   appStatus.value = appStatusEnum.IMPORT
