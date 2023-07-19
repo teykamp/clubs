@@ -41,44 +41,68 @@
           </v-sheet>
           <Dialog v-model:showDialog="displayImportDialog">
             <template #content>
-              <p>
-                Paste your JSON into this box to import:
-              </p>
-
-              <v-textarea
-                v-model="importPasteBoxContent"
-                label="Paste JSON Here" 
-                variant="outlined" 
-                rows="6"
-                style="min-width: 600px"
-                class="mt-4"
-              ></v-textarea>
-              <v-btn 
-                color="primary" 
-                size="x-small" 
-                style="margin-top: -40px"
-                variant="text"
-                @click="importPasteBoxContent = ''"
-              >Clear</v-btn>
-              <v-alert v-if="showImportPasteBoxErrorDialog" type="warning" :text="importPasteBoxError">
-              </v-alert>
+              <div v-show="currentImportType === importStatusEnum.PASTE" style="width: 600px; height: 250px">
+                <v-row class="d-flex justify-space-between mb-2">
+                  <p>Paste your JSON into this box to import:</p>
+                    <v-btn
+                      color="primary"
+                      size="small"
+                      variant="text"
+                      @click="currentImportType = importStatusEnum.UPLOAD"
+                    >Upload File</v-btn>
+                </v-row>
+                <v-textarea
+                  v-model="importPasteBoxContent"
+                  label="Paste JSON Here" 
+                  variant="outlined" 
+                  rows="6"
+                  style="min-width: 600px"
+                  class="mt-4"
+                ></v-textarea>
+                <v-btn 
+                  color="primary" 
+                  size="x-small" 
+                  style="margin-top: -40px"
+                  variant="text"
+                  @click="importPasteBoxContent = ''"
+                >Clear</v-btn>
+                <v-alert v-if="showImportPasteBoxErrorDialog" type="warning" :text="importPasteBoxError">
+                </v-alert>
+              </div>
+              <div v-show="currentImportType === importStatusEnum.UPLOAD" style="width: 600px; height: 250px">
+                <v-row class="d-flex justify-space-between mb-2">
+                  <p>Select your file below</p>
+                    <v-btn
+                      color="primary"
+                      size="small"
+                      variant="text"
+                      @click="currentImportType = importStatusEnum.PASTE"
+                    >Paste JSON</v-btn>
+                </v-row>
+                <v-file-input 
+                  v-model="importFileInput"
+                  label="JSON Upload"
+                  prepend-icon="mdi-json"
+                  @change="handleImportFileInput()"
+                  @click:clear="importFileInput = null,
+                                importFileData = ''"
+                ></v-file-input>
+              </div>
             </template>
             <template #actions>
-              <!-- add other un-disable option when uploading file -->
               <v-btn
                 color="success"
-                :disabled="importPasteBoxContent === ''"
+                :disabled="importFileData === '' && importPasteBoxContent === ''"
                 @click="handleClickImportButton()"
               >Import</v-btn>
-              <v-btn 
-                color="primary"
-              >Upload File</v-btn>
               <v-btn
                 color="red"
                 @click="displayImportDialog = false,
                         importPasteBoxError = '',
                         importPasteBoxContent = '',
-                        showImportPasteBoxErrorDialog = false"
+                        showImportPasteBoxErrorDialog = false,
+                        importFileInput = null,
+                        importFileData = ''"
               >Cancel</v-btn>
             </template>
           </Dialog>
@@ -172,6 +196,7 @@ import Snackbar from './components/Snackbar.vue'
 import Dialog from './components/Dialog.vue'
 import { patterns } from '@/data/patterns'
 import { appStatusEnum } from '@/data/appStatusEnum'
+import { importStatusEnum } from '@/data/importStatusEnum'
 import type { SolidColor,
               PulsingColor,
               Confetti,
@@ -231,7 +256,6 @@ function downloadJSONData() {
   anchor.click()
 }
 
-
 function handleSubmitClick() {
   navigator.clipboard.writeText(JSON.stringify(addedPatterns.value))
   showSubmitSnackbar.value = true
@@ -256,17 +280,39 @@ const importPasteBoxContent = ref("")
 const importPasteBoxError = ref("")
 const showImportPasteBoxErrorDialog = ref(false)
 
+const currentImportType = ref(importStatusEnum.PASTE)
+const importFileInput = ref(null)
+const importFileData = ref("")
+
 function handleClickImportButton() {
-  try {
-    addedPatterns.value = JSON.parse(importPasteBoxContent.value)
-  } catch (error) {
-    showImportPasteBoxErrorDialog.value = true
-    importPasteBoxError.value = String(error)
-    return
+  if (currentImportType.value === importStatusEnum.PASTE) {
+    try {
+      addedPatterns.value = JSON.parse(importPasteBoxContent.value)
+    } catch (error) {
+      showImportPasteBoxErrorDialog.value = true
+      importPasteBoxError.value = String(error)
+      return
+    }
+  }
+  else {
+    addedPatterns.value = JSON.parse(JSON.stringify(importFileData.value))
   }
   appStatus.value = appStatusEnum.IMPORT
   displayImportDialog.value = false
   importPasteBoxContent.value = ''
+}
+
+function handleImportFileInput() {
+  if (importFileInput.value !== null) {
+
+    let reader = new FileReader()
+
+    reader.readAsText(importFileInput.value[0]);
+
+    reader.onload = () => {
+      importFileData.value = JSON.parse(reader.result);
+    }
+  }
 }
 </script>
 
