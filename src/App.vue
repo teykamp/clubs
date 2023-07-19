@@ -82,7 +82,7 @@
                 <v-file-input 
                   v-model="importFileInput"
                   label="JSON Upload"
-                  prepend-icon="mdi-json"
+                  prepend-icon="mdi-code-braces"
                   @change="handleImportFileInput()"
                   @click:clear="importFileInput = null,
                                 importFileData = ''"
@@ -281,7 +281,7 @@ const importPasteBoxError = ref("")
 const showImportPasteBoxErrorDialog = ref(false)
 
 const currentImportType = ref(importStatusEnum.PASTE)
-const importFileInput = ref(null)
+const importFileInput = ref()
 const importFileData = ref("")
 
 function handleClickImportButton() {
