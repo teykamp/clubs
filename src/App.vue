@@ -116,6 +116,7 @@
             </div>
             <v-btn
               v-if="addedPatterns.length"
+              class="ml-4"
               @click="handleSubmitClick()"
             >Submit</v-btn>
             <div ref="bottomElement" style="margin-top: 370px;"></div>
