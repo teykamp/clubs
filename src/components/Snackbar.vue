@@ -3,8 +3,17 @@
     <v-snackbar 
       v-model="showSnackbar"
       :color="color || 'success'"
+      :timeout="timeout"
     >
-      <slot name="content"></slot>
+      <v-container>
+        <v-row>
+          <slot name="content"></slot>
+        </v-row>
+        <v-row class="d-flex justify-center">
+          <slot name="actions"></slot>
+        </v-row>
+      </v-container>
+
     </v-snackbar>
   </div>
 </template>
@@ -18,6 +27,7 @@ const props = defineProps<{
     required: false,
   },
   showSnackbar: boolean,
+  timeout: number,
 }>()
 
 const emits = defineEmits([

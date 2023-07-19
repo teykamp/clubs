@@ -142,9 +142,16 @@
               </v-list-item>
             </v-list>
           </v-menu>
-          <Snackbar v-model:showSnackbar="showSubmitSnackbar">
+          <Snackbar 
+            v-model:showSnackbar="showSubmitSnackbar" 
+            :timeout="5000"
+          >
             <template #content>
-              JSON Template Copied to Clipboard
+              <h3>JSON Template Copied to Clipboard</h3>
+            </template>
+            <template #actions>
+              <v-btn variant="outlined" class="ma-2" @click="downloadJSONData()">Download File</v-btn>
+              <v-btn variant="text" class="ma-2" @click="showSubmitSnackbar = false">Close</v-btn>
             </template>
           </Snackbar>
       </v-container>
@@ -211,6 +218,14 @@ function handleAddNewPattern(value: object) {
 }
 
 const showSubmitSnackbar = ref(false)
+function downloadJSONData() {
+  const anchor = document.createElement('a')
+  anchor.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(JSON.stringify(addedPatterns.value))
+  anchor.target = '_blank'
+  anchor.download = 'club_pattern.json'
+  anchor.click()
+}
+
 
 function handleSubmitClick() {
   navigator.clipboard.writeText(JSON.stringify(addedPatterns.value))
