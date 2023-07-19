@@ -41,7 +41,7 @@
           </v-card-actions>
 
           <!-- colors -->
-          <div v-if="colors.linkColors" class="mb-2">
+          <div v-if="colors.linkColors" class="mb-4">
             <v-col
               v-for="(_, index) in colors.color.slice(2, -1)"
               :key="index"
@@ -58,7 +58,7 @@
               ></v-btn>
             </v-col>
           </div>
-          <div v-else class="d-flex justify-space-around mb-2">
+          <div v-else class="d-flex justify-space-around mb-4">
             <v-col
               v-for="(_, index) in colors.color.slice(1)"
               :key="index"
@@ -98,7 +98,7 @@
               <v-slider
                 v-model="colors.duration"
                 inverse-label
-                :prependIcon="summaryIconList[1]"
+                :prependIcon="summaryIconList[2]"
                 class="mx-6" 
                 min="0" 
                 max="10"
