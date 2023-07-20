@@ -41,7 +41,7 @@
           </v-sheet>
           <Dialog v-model:showDialog="displayImportDialog">
             <template #content>
-              <div v-show="currentImportType === importStatusEnum.PASTE" style="width: 600px; height: 250px">
+              <div v-show="currentImportType === importStatusEnum.PASTE" style="width: 600px; min-height: 250px">
                 <v-row class="d-flex justify-space-between mb-2">
                   <p>Paste your JSON into this box to import:</p>
                     <v-btn
@@ -66,10 +66,10 @@
                   variant="text"
                   @click="importPasteBoxContent = ''"
                 >Clear</v-btn>
-                <v-alert v-if="showImportPasteBoxErrorDialog" type="warning" :text="importPasteBoxError">
+                <v-alert v-if="importPasteBoxError !== ''" type="warning" :text="importPasteBoxError">
                 </v-alert>
               </div>
-              <div v-show="currentImportType === importStatusEnum.UPLOAD" style="width: 600px; height: 250px">
+              <div v-show="currentImportType === importStatusEnum.UPLOAD" style="width: 600px; min-height: 250px">
                 <v-row class="d-flex justify-space-between mb-2">
                   <p>Select your file below</p>
                     <v-btn
@@ -87,6 +87,8 @@
                   @click:clear="importFileInput = null,
                                 importFileData = ''"
                 ></v-file-input>
+                <v-alert v-if="importFileError !== ''" type="warning" :text="importFileError">
+                </v-alert>
               </div>
             </template>
             <template #actions>
@@ -100,9 +102,9 @@
                 @click="displayImportDialog = false,
                         importPasteBoxError = '',
                         importPasteBoxContent = '',
-                        showImportPasteBoxErrorDialog = false,
                         importFileInput = null,
-                        importFileData = ''"
+                        importFileData = '',
+                        importFileError = ''"
               >Cancel</v-btn>
             </template>
           </Dialog>
@@ -278,24 +280,29 @@ const displayImportDialog = ref(false)
 
 const importPasteBoxContent = ref("")
 const importPasteBoxError = ref("")
-const showImportPasteBoxErrorDialog = ref(false)
 
 const currentImportType = ref(importStatusEnum.PASTE)
 const importFileInput = ref()
 const importFileData = ref("")
+const importFileError = ref("")
 
 function handleClickImportButton() {
   if (currentImportType.value === importStatusEnum.PASTE) {
     try {
       addedPatterns.value = JSON.parse(importPasteBoxContent.value)
     } catch (error) {
-      showImportPasteBoxErrorDialog.value = true
       importPasteBoxError.value = String(error)
       return
     }
   }
   else {
-    addedPatterns.value = JSON.parse(JSON.stringify(importFileData.value))
+    // try catch probably not used here
+    try {
+      addedPatterns.value = JSON.parse(JSON.stringify(importFileData.value))
+    } catch (error) {
+      importFileError.value = String(error)
+      return
+    }
   }
   appStatus.value = appStatusEnum.IMPORT
   displayImportDialog.value = false
@@ -310,8 +317,14 @@ function handleImportFileInput() {
     reader.readAsText(importFileInput.value[0]);
 
     reader.onload = () => {
-      importFileData.value = JSON.parse(reader.result);
+      try {
+        importFileData.value = JSON.parse(reader.result);
+      } catch (error) {
+        importFileError.value = String(error)
+        return
+      }
     }
+    importFileError.value = ""
   }
 }
 </script>
