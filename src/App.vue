@@ -14,7 +14,7 @@
           <template #actions>
             <v-btn
               color="red"
-              @click="displayBackButtonDialog = false, appStatus = appStatusEnum.HOME, addedPatterns = []"
+              @click="displayBackButtonDialog = false, appStatus = appStatusEnum.HOME, addedPatterns = [], importFileError = '', importPasteBoxError = ''"
             >Proceed</v-btn>
             <v-btn
               color="primary"
