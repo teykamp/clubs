@@ -12,7 +12,7 @@
         >{{ chip }}</v-chip>
       </div>
       <v-divider
-        v-if="data.color"
+        v-if="typeof(data) === 'object' && 'color' in data"
         vertical 
         class="ml-2" 
         style="max-height: 30px;"
@@ -83,7 +83,7 @@
             ></v-slider>
           </v-col>
           <v-col 
-            v-if="data.colorCycleSpeed !== undefined"
+            v-if="typeof(data) === 'object' && 'colorCycleSpeed' in data"
           >
             <v-slider
               inverse-label

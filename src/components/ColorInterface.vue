@@ -25,11 +25,11 @@
 
     <v-card elevation="0" class="mx-6">
       <v-checkbox
-        v-if="colors.on !== undefined"
+        v-if="typeof(colors) === 'object' && 'on' in colors"
         v-model="colors.on"
         :label="colors.name"
       ></v-checkbox>
-      <v-expand-transition v-show="colors.on || colors.on === undefined">
+      <v-expand-transition v-show="colors.on === undefined || colors.on">
         <v-card>
           <v-card-actions class="ml-6">
             <v-btn
@@ -78,7 +78,7 @@
           <!-- sliders -->
           <v-row class="d-flex align-center">
               <v-col
-                v-if="colors.speed !== undefined"
+                v-if="typeof(colors) === 'object' && 'speed' in colors"
                 cols="6"
               >
                 <v-slider
@@ -92,7 +92,7 @@
                 ></v-slider>
               </v-col>
             <v-col
-              v-if="colors.duration !== undefined"
+              v-if="typeof(colors) === 'object' && 'duration' in colors"
               cols="6"
             >
               <v-slider
