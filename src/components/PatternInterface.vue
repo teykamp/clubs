@@ -175,5 +175,5 @@ function getChipDisplay() {
   return chips
 }
 
-const summaryIconList = ref(["mdi-puzzle", 'mdi-speedometer', "mdi-animation"])
+const summaryIconList = ref(["mdi-puzzle", 'mdi-speedometer', "mdi-rotate-right"])
 </script>

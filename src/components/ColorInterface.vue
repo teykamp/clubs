@@ -84,7 +84,7 @@
                 <v-slider
                   v-model="colors.speed"
                   inverse-label
-                  :prependIcon="summaryIconList[1]"
+                  :prependIcon="summaryIconList[0]"
                   class="mx-6" 
                   min="0" 
                   max="10"
@@ -98,7 +98,7 @@
               <v-slider
                 v-model="colors.duration"
                 inverse-label
-                :prependIcon="summaryIconList[2]"
+                :prependIcon="summaryIconList[1]"
                 class="mx-6" 
                 min="0" 
                 max="10"
@@ -135,5 +135,5 @@ const colors = computed({
 const colorDialog = ref(false)
 const colorIndex = ref(0)
 
-const summaryIconList = ref(["mdi-puzzle", 'mdi-speedometer', "mdi-animation"])
+const summaryIconList = ref(['mdi-speedometer', "mdi-timer-sand"])
 </script>
