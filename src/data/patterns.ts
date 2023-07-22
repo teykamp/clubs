@@ -378,7 +378,7 @@ export const patterns = {
     "Pulsing Color": getDefaultPattern("Pulsing Color", getDate()),
     "Multipole": getDefaultLargePattern("Multipole", getDate()),
     "Confetti": getDefaultLargePattern("Confetti", getDate()),
-    "Linear Rainbow": getDefaultSmallPattern("Linear rainbow", getDate()),
+    "Linear Rainbow": getDefaultSmallPattern("Linear Rainbow", getDate()),
     "Vertical Rainbow": getDefaultSmallPattern("Vertical Rainbow", getDate()),
     "Vertical Wave": getDefaultLargePattern("Vertical Wave", getDate()),
     "Torch": getDefaultLargePattern("Torch", getDate()),
