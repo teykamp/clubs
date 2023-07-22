@@ -88,7 +88,7 @@
                   class="mx-6" 
                   min="0" 
                   max="10"
-                  :label="sliderDisplay(colors.speed)"
+                  :label="`Speed: ${sliderDisplay(colors.speed)}`"
                 ></v-slider>
               </v-col>
             <v-col
@@ -102,7 +102,7 @@
                 class="mx-6" 
                 min="0" 
                 max="10"
-                :label="sliderDisplay(colors.duration)"
+                :label="`Duration: ${sliderDisplay(colors.duration)}`"
               ></v-slider>
             </v-col>
           </v-row>

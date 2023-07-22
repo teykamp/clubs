@@ -79,7 +79,7 @@
               class="mx-6" 
               min="0" 
               max="10"
-              :label="sliderDisplay(data.patternSpeed)"
+              :label="`Speed: ${sliderDisplay(data.patternSpeed)}`"
             ></v-slider>
           </v-col>
           <v-col 
@@ -92,7 +92,7 @@
               class="mx-6" 
               min="0" 
               max="10"
-              :label="sliderDisplay(data.colorCycleSpeed)"
+              :label="`Cycle Speed: ${sliderDisplay(data.colorCycleSpeed)}`"
             ></v-slider>
           </v-col>
         </v-row>
