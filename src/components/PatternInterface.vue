@@ -154,7 +154,6 @@ function getColorInterfaceColors() {
 
 function getChipDisplay() {
   let chips: string[] = []
-  // added patterns (puzzle icon)
   let onCount: number = 0
   let count: number = 0
   for (let key in props.data) {
@@ -165,10 +164,8 @@ function getChipDisplay() {
   }
   chips.push(`${onCount}/${count}`)
 
-  // speed (speedometer icon)
   chips.push(`${sliderDisplay(props.data.patternSpeed)}`)
 
-  // cycleSpeed if exists (idk icon)
   if ("colorCycleSpeed" in props.data) 
     chips.push(`${sliderDisplay(props.data.colorCycleSpeed)}`)
 
