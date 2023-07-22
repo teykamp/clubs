@@ -120,6 +120,7 @@
               <PatternParent 
                 v-model:title="addedPatterns[index].displayName"
                 @update:delete="deletePattern(index)"
+                :id="'pattern-id-' + (index + 1)"
               >
               <template #orderButtons>
                 <v-btn-group variant="outlined">
@@ -150,7 +151,7 @@
               class="ml-4"
               @click="handleSubmitClick()"
             >Submit</v-btn>
-            <div ref="bottomElement" style="margin-top: 370px;"></div>
+            <div ref="bottomElement" style="margin-top: 150px;"></div>
           </v-sheet>
         </v-col>
           <v-menu v-if="appStatus !== appStatusEnum.HOME">
@@ -226,9 +227,17 @@ function deletePattern(index: number) {
   addedPatterns.value.splice(index, 1)
 }
 
-const bottomElement = ref()
-function scrollToBottom() {
-  bottomElement.value.scrollIntoView({behavior: 'smooth', block: 'end'});
+function scrollToBottom(scrollToIndex: number) {
+  if (scrollToIndex !== 0) {
+    var el = document.getElementById(String('pattern-id-' + scrollToIndex))
+    el?.scrollIntoView({behavior: 'smooth', block: 'center' })
+  }
+}
+
+function handleAddNewPattern(value: object) {
+  value.id = Date.now()
+  addedPatterns.value.push(JSON.parse(JSON.stringify(value)))
+  scrollToBottom(addedPatterns.value.length - 1)
 }
 
 function handleOrderButtons(direction: number, index: number) {
@@ -237,16 +246,9 @@ function handleOrderButtons(direction: number, index: number) {
     const adjacentIndexValue = addedPatterns.value[index + direction]
     addedPatterns.value[index + direction] = addedPatterns.value[index]
     addedPatterns.value[index] = adjacentIndexValue
-  }
-  else {
+  } else {
     console.log("direction not defined in handleOrderButtons()")
   }
-}
-
-function handleAddNewPattern(value: object) {
-  value.id = Date.now()
-  addedPatterns.value.push(JSON.parse(JSON.stringify(value)))
-  scrollToBottom()
 }
 
 const showSubmitSnackbar = ref(false)
