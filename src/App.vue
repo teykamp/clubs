@@ -122,6 +122,7 @@
                 @update:delete="deletePattern(index)"
                 :id="'pattern-id-' + (index + 1)"
               >
+              <!-- maybe use pattern ID if conflict with rearrange buttons -->
               <template #orderButtons>
                 <v-btn-group variant="outlined">
                   <v-btn
