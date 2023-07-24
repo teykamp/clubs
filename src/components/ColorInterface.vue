@@ -32,12 +32,15 @@
       <v-expand-transition v-show="colors.on === undefined || colors.on">
         <v-card>
           <v-card-actions class="ml-6">
-            <v-btn
-              :icon="colors.linkColors ? 'mdi-link' : 'mdi-link-off'"
-              variant="plain"
-              density="compact"
-              @click="colors.linkColors = !colors.linkColors"
-            ></v-btn>
+            <div>
+              <v-btn
+                :icon="colors.linkColors ? 'mdi-link' : 'mdi-link-off'"
+                variant="plain"
+                density="compact"
+                @click="colors.linkColors = !colors.linkColors"
+              ></v-btn>
+              <v-tooltip activator="parent" location="top">{{ colors.linkColors ? "Unlink Colors" : "Link Colors" }}</v-tooltip>
+            </div>
           </v-card-actions>
 
           <!-- colors -->
