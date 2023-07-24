@@ -7,9 +7,10 @@
       >
         <v-chip
           color="primary" 
-          :prepend-icon="summaryIconList[index]"
+          :prepend-icon="Object.values(summaryIconList)[index]"
           class="ml-1"
         >{{ chip }}</v-chip>
+        <v-tooltip activator="parent" location="top">{{ Object.keys(summaryIconList)[index] }}</v-tooltip>
       </div>
       <v-divider
         v-if="typeof(data) === 'object' && 'color' in data"
@@ -45,6 +46,7 @@
                     'width': '30px'}"
           ></v-chip>
         </div>
+        <v-tooltip activator="parent" location="top">Color</v-tooltip>
       </div>
       <v-spacer></v-spacer>
         <div class="mb-3">
@@ -172,5 +174,5 @@ function getChipDisplay() {
   return chips
 }
 
-const summaryIconList = ref(["mdi-puzzle", 'mdi-speedometer', "mdi-rotate-right"])
+const summaryIconList = ref({"Patterns": "mdi-puzzle", "Speed": 'mdi-speedometer', "Cycle Speed": "mdi-rotate-right"})
 </script>
