@@ -178,6 +178,7 @@
           <Snackbar 
             v-model:showSnackbar="showSubmitSnackbar" 
             :timeout="5000"
+            :color="''"
           >
             <template #content>
               <h3>JSON Template Copied to Clipboard</h3>

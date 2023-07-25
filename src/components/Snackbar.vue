@@ -22,10 +22,7 @@
 import { computed } from 'vue'
 
 const props = defineProps<{
-  color: {
-    type: string,
-    required: false,
-  },
+  color: string,
   showSnackbar: boolean,
   timeout: number,
 }>()
