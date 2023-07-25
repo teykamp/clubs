@@ -122,7 +122,18 @@ import { sliderDisplay } from '@/functions/sliderDisplay'
 import Dialog from './Dialog.vue';
 
 const props= defineProps<{
-  colors: object,
+  colors: {
+    name: string,
+    on: boolean,
+    linkColors: boolean,
+    color: {
+      'h': number,
+      's': number,
+      'l': number
+    }[],
+    speed: number,
+    duration: number,
+  },
   patternType: string
 }>()
 
