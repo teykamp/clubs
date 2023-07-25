@@ -145,7 +145,7 @@ const data = computed({
 })
 const colorInterfaceColors = ref(getColorInterfaceColors())
 function getColorInterfaceColors() {
-  let colors: object = new Object
+  let colors: { [index: string] :any } = new Object
   for (let i = 0; i < colorKeys.length; i++) {
     if (colorKeys[i] in data.value) {
       colors[colorKeys[i]] = data.value[colorKeys[i]]
