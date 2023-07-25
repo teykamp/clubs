@@ -236,7 +236,7 @@ function scrollToBottom(scrollToIndex: number) {
   }
 }
 
-function handleAddNewPattern(value: object) {
+function handleAddNewPattern(value: { id: number }) {
   value.id = Date.now()
   addedPatterns.value.push(JSON.parse(JSON.stringify(value)))
   scrollToBottom(addedPatterns.value.length - 1)
@@ -322,7 +322,7 @@ function handleImportFileInput() {
 
     reader.onload = () => {
       try {
-        importFileData.value = JSON.parse(reader.result);
+        if (typeof(reader.result) === 'string') importFileData.value = JSON.parse(reader.result);
       } catch (error) {
         importFileError.value = String(error)
         return
