@@ -111,7 +111,6 @@
           </v-row>
         </v-card>
       </v-expand-transition>
-
     </v-card>
   </div>
 </template>
@@ -149,5 +148,5 @@ const colors = computed({
 const colorDialog = ref(false)
 const colorIndex = ref(0)
 
-const summaryIconList = ref(['mdi-speedometer', "mdi-timer-sand"])
+const summaryIconList = ["mdi-speedometer", "mdi-timer-sand"]
 </script>

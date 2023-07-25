@@ -36,7 +36,7 @@
         <div v-else>
           <v-chip
             v-for="color in data.color.color.slice(1)"
-            :key="color"
+            :key="color.h"
             class="ml-1"
             :style="{'background': `hsl(
                     ${color.h} 
@@ -77,7 +77,7 @@
             <v-slider 
               v-model="data.patternSpeed"
               inverse-label
-              :prependIcon="summaryIconList[1]"
+              :prependIcon="Object.values(summaryIconList)[1]"
               class="mx-6" 
               min="0" 
               max="10"
@@ -90,7 +90,7 @@
             <v-slider
               inverse-label
               v-model="data.colorCycleSpeed"
-              :prependIcon="summaryIconList[2]"
+              :prependIcon="Object.values(summaryIconList)[2]"
               class="mx-6" 
               min="0" 
               max="10"
@@ -174,5 +174,5 @@ function getChipDisplay() {
   return chips
 }
 
-const summaryIconList = ref({"Patterns": "mdi-puzzle", "Speed": 'mdi-speedometer', "Cycle Speed": "mdi-rotate-right"})
+const summaryIconList = {"Patterns": "mdi-puzzle", "Speed": 'mdi-speedometer', "Cycle Speed": "mdi-rotate-right"}
 </script>
