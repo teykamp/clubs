@@ -331,6 +331,13 @@ function handleImportFileInput() {
     importFileError.value = ""
   }
 }
+
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey && e.key === 's' && appStatus.value !== appStatusEnum.HOME) {
+    e.preventDefault()
+    handleSubmitClick()
+  }
+});
 </script>
 
 <style scoped>
