@@ -148,10 +148,15 @@
               </PatternParent> 
             </div>
             <v-btn
-              v-if="addedPatterns.length"
+              v-show="addedPatterns.length"
               class="ml-4"
               @click="handleSubmitClick()"
             >Submit</v-btn>
+            <div v-show="addedPatterns.length" class="ml-4 text-caption mt-2">
+              <v-chip label size="x-small">CTRL</v-chip>
+              +
+              <v-chip label size="x-small">S</v-chip>
+            </div>
             <div ref="bottomElement" style="margin-top: 150px;"></div>
           </v-sheet>
         </v-col>
@@ -253,6 +258,8 @@ function handleOrderButtons(direction: number, index: number) {
   }
 }
 
+const appStatus = ref(appStatusEnum.HOME)
+
 const showSubmitSnackbar = ref(false)
 function downloadJSONData() {
   const anchor = document.createElement('a')
@@ -267,7 +274,13 @@ function handleSubmitClick() {
   showSubmitSnackbar.value = true
 }
 
-const appStatus = ref(appStatusEnum.HOME)
+
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey && e.key === 's' && appStatus.value !== appStatusEnum.HOME && addedPatterns.value.length) {
+    e.preventDefault()
+    handleSubmitClick()
+  }
+});
 
 const displayBackButtonDialog = ref(false)
 function displayBackButtonDialogHelper() {
@@ -331,13 +344,6 @@ function handleImportFileInput() {
     importFileError.value = ""
   }
 }
-
-document.addEventListener('keydown', e => {
-  if (e.ctrlKey && e.key === 's' && appStatus.value !== appStatusEnum.HOME) {
-    e.preventDefault()
-    handleSubmitClick()
-  }
-});
 </script>
 
 <style scoped>
