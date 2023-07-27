@@ -130,7 +130,8 @@ const props= defineProps<{
         LinearRainbow|
         VerticalRainbow|
         BPM|
-        Juggle
+        Juggle|
+        any // fixes type errors. Only use for npm build
 }>()
 
 const expand = ref(false)
