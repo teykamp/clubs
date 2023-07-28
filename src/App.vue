@@ -122,7 +122,7 @@
                 @update:delete="deletePattern(index)"
                 :id="'pattern-id-' + (index + 1)"
               >
-              <!-- maybe use pattern ID if conflict with rearrange buttons -->
+              <!-- maybe use pattern ID if conflict with rearrange buttons. pass id to function for scroll -->
               <template #orderButtons>
                 <v-btn-group variant="outlined">
                   <v-btn
