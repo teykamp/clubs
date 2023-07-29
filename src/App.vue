@@ -120,7 +120,7 @@
               <PatternParent 
                 v-model:title="addedPatterns[index].displayName"
                 @update:delete="deletePattern(index)"
-                :id="'pattern-id-' + (index + 1)"
+                :id="`pattern-id-${addedPatterns[index].id}`"
               >
               <!-- maybe use pattern ID if conflict with rearrange buttons. pass id to function for scroll -->
               <template #orderButtons>
@@ -199,7 +199,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, nextTick  } from 'vue'
 import PatternParent from '@/components/PatternParent.vue'
 import PatternInterface from '@/components/PatternInterface.vue'
 import Snackbar from './components/Snackbar.vue'
@@ -234,17 +234,15 @@ function deletePattern(index: number) {
   addedPatterns.value.splice(index, 1)
 }
 
-function scrollToBottom(scrollToIndex: number) {
-  if (scrollToIndex !== 0) {
-    var el = document.getElementById(String('pattern-id-' + scrollToIndex))
+function scrollToBottom(scrollToId: number) {
     el?.scrollIntoView({behavior: 'smooth', block: 'center' })
   }
 }
 
-function handleAddNewPattern(value: { id: number }) {
+async function handleAddNewPattern(value: { id: number }) {
   value.id = Date.now()
   addedPatterns.value.push(JSON.parse(JSON.stringify(value)))
-  scrollToBottom(addedPatterns.value.length - 1)
+  await nextTick()
 }
 
 function handleOrderButtons(direction: number, index: number) {
