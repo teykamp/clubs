@@ -122,20 +122,19 @@
                 @update:delete="deletePattern(index)"
                 :id="`pattern-id-${addedPatterns[index].id}`"
               >
-              <!-- maybe use pattern ID if conflict with rearrange buttons. pass id to function for scroll -->
               <template #orderButtons>
                 <v-btn-group variant="outlined">
                   <v-btn
                     :disabled="index === 0 ? true: false"
                     icon="mdi-arrow-up" 
                     class="mr-0"
-                    @click="handleOrderButtons(-1, index)"
+                    @click="handleOrderButtons(-1, index, addedPatterns[index].id)"
                   ></v-btn>
                   <v-btn
                     :disabled="index === addedPatterns.length -1 ? true: false"
                     icon="mdi-arrow-down" 
                     class="ml-0"
-                    @click="handleOrderButtons(1, index)"
+                    @click="handleOrderButtons(1, index, addedPatterns[index].id)"
                   ></v-btn>
                 </v-btn-group>
 
@@ -234,7 +233,7 @@ function deletePattern(index: number) {
   addedPatterns.value.splice(index, 1)
 }
 
-function scrollToBottom(scrollToId: number) {
+function scrollToElement(scrollToId: number) {
   const el = document.getElementById(`pattern-id-${scrollToId}`)
   el?.scrollIntoView({behavior: 'smooth', block: 'center' })
 }
@@ -243,14 +242,15 @@ async function handleAddNewPattern(value: { id: number }) {
   value.id = Date.now()
   addedPatterns.value.push(JSON.parse(JSON.stringify(value)))
   await nextTick()
-  scrollToBottom(value.id)
+  scrollToElement(value.id)
 }
 
-function handleOrderButtons(direction: -1 | 1, index: number) {
+function handleOrderButtons(direction: -1 | 1, index: number, elementId: number) {
   if ([-1, 1].includes(direction)) {
     const adjacentIndexValue = addedPatterns.value[index + direction]
     addedPatterns.value[index + direction] = addedPatterns.value[index]
     addedPatterns.value[index] = adjacentIndexValue
+    scrollToElement(elementId)
   } else {
     console.log("direction not defined in handleOrderButtons()")
   }
