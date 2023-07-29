@@ -235,18 +235,18 @@ function deletePattern(index: number) {
 }
 
 function scrollToBottom(scrollToId: number) {
-    el?.scrollIntoView({behavior: 'smooth', block: 'center' })
-  }
+  const el = document.getElementById(`pattern-id-${scrollToId}`)
+  el?.scrollIntoView({behavior: 'smooth', block: 'center' })
 }
 
 async function handleAddNewPattern(value: { id: number }) {
   value.id = Date.now()
   addedPatterns.value.push(JSON.parse(JSON.stringify(value)))
   await nextTick()
+  scrollToBottom(value.id)
 }
 
-function handleOrderButtons(direction: number, index: number) {
-
+function handleOrderButtons(direction: -1 | 1, index: number) {
   if ([-1, 1].includes(direction)) {
     const adjacentIndexValue = addedPatterns.value[index + direction]
     addedPatterns.value[index + direction] = addedPatterns.value[index]
