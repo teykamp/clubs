@@ -199,7 +199,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick  } from 'vue'
+import { ref, nextTick } from 'vue'
 import PatternParent from '@/components/PatternParent.vue'
 import PatternInterface from '@/components/PatternInterface.vue'
 import Snackbar from './components/Snackbar.vue'
