@@ -252,7 +252,7 @@ function handleOrderButtons(direction: -1 | 1, index: number, elementId: number)
     addedPatterns.value[index] = adjacentIndexValue
     scrollToElement(elementId)
   } else {
-    console.log("direction not defined in handleOrderButtons()")
+    throw new Error('direction not defined in handleOrderButtons()')
   }
 }
 
