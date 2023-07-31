@@ -141,8 +141,8 @@
               </template>
               <template #patternInterface>
                 <PatternInterface
-                    v-model:data="addedPatterns[index]"
-                  />
+                  v-model:data="addedPatterns[index]"
+                />
               </template>
               </PatternParent> 
             </div>
