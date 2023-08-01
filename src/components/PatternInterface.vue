@@ -94,7 +94,7 @@
               class="mx-6" 
               min="5" 
               max="120"
-              :label="`Cycle Speed: ${sliderDisplay(data.colorCycleSpeed, 120)}`"
+              :label="`Duration: ${sliderDisplay(data.colorCycleSpeed, 120)}`"
             ></v-slider>
           </v-col>
         </v-row>
@@ -175,5 +175,5 @@ function getChipDisplay() {
   return chips
 }
 
-const summaryIconList = {"Options": "mdi-puzzle", "Speed": 'mdi-speedometer', "Cycle Speed": "mdi-rotate-right"}
+const summaryIconList = {"Options": "mdi-puzzle", "Speed": 'mdi-speedometer', "Duration": "mdi-rotate-right"}
 </script>
