@@ -199,7 +199,7 @@ function getDefaultPattern(name: string, id: number) {
             }],
         },
         patternSpeed: 0,
-        colorCycleSpeed: 0,
+        colorCycleSpeed: 5,
     }
 }
 
@@ -340,7 +340,7 @@ function  getDefaultLargePattern(name: string, id: number) {
             }],
         },
         patternSpeed: 0,
-        colorCycleSpeed: 0,
+        colorCycleSpeed: 5,
         secondaryColor: {
             name: "Secondary Color",
             on: false,

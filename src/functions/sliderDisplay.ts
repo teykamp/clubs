@@ -1,3 +1,4 @@
-export function sliderDisplay(sliderValue: number) {
-  return sliderValue === 0 ? 'Frozen' : sliderValue.toFixed(1)
+export function sliderDisplay(sliderValue: number, freezeValue: number) {
+  return sliderValue === freezeValue ? 'Frozen' : sliderValue.toFixed(1)
 }
+

@@ -81,7 +81,7 @@
               class="mx-6" 
               min="0" 
               max="10"
-              :label="`Speed: ${sliderDisplay(data.patternSpeed)}`"
+              :label="`Speed: ${sliderDisplay(data.patternSpeed, 0)}`"
             ></v-slider>
           </v-col>
           <v-col 
@@ -92,9 +92,9 @@
               v-model="data.colorCycleSpeed"
               :prependIcon="Object.values(summaryIconList)[2]"
               class="mx-6" 
-              min="0" 
-              max="10"
-              :label="`Cycle Speed: ${sliderDisplay(data.colorCycleSpeed)}`"
+              min="5" 
+              max="120"
+              :label="`Cycle Speed: ${sliderDisplay(data.colorCycleSpeed, 120)}`"
             ></v-slider>
           </v-col>
         </v-row>
@@ -167,10 +167,10 @@ function getChipDisplay() {
   }
   chips.push(`${onCount}/${count}`)
 
-  chips.push(`${sliderDisplay(props.data.patternSpeed)}`)
+  chips.push(`${sliderDisplay(props.data.patternSpeed, 0)}`)
 
   if ("colorCycleSpeed" in props.data) 
-    chips.push(`${sliderDisplay(props.data.colorCycleSpeed)}`)
+    chips.push(`${sliderDisplay(props.data.colorCycleSpeed, 120)}`)
 
   return chips
 }
