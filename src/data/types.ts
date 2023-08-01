@@ -26,60 +26,6 @@ type BasePattern = {
             "l": number
         }
     ]},
-    bodyColor: {
-        name: string,
-        on: boolean,
-        speed: number,
-        duration: number,
-        linkColors: boolean,
-        color: [{
-                "h": number,
-                "s": number,
-                "l": number
-            },
-            {
-                "h": number,
-                "s": number,
-                "l": number
-            },
-            {
-                "h": number,
-                "s": number,
-                "l": number
-            },
-            {
-                "h": number,
-                "s": number,
-                "l": number
-            }],
-    },
-    ringColor: {
-        name: string,
-        on: boolean,
-        speed: number,
-        duration: number,
-        linkColors: boolean,
-        color: [{
-            "h": number,
-            "s": number,
-            "l": number
-        },
-        {
-            "h": number,
-            "s": number,
-            "l": number
-        },
-        {
-            "h": number,
-            "s": number,
-            "l": number
-        },
-        {
-            "h": number,
-            "s": number,
-            "l": number
-        }],
-    },
     sparkleColor: {
         name: string,
         on: boolean,

@@ -90,60 +90,6 @@ function getDefaultPattern(name: string, id: number) {
                 "s": 0,
                 "l": 0
             }]},
-        bodyColor: {
-            name: "Body Color",
-            on: false,
-            speed: 0,
-            duration: 0,
-            linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }],
-        },
-        ringColor: {
-            name: "Ring Color",
-            on: false,
-            speed: 0,
-            duration: 0,
-            linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }],
-        },
         sparkleColor: {
             name: "Sparkle Color",
             on: false,
@@ -231,60 +177,6 @@ function  getDefaultLargePattern(name: string, id: number) {
                 "s": 0,
                 "l": 0
             }]},
-        bodyColor: {
-            name: "Body Color",
-            on: false,
-            speed: 0,
-            duration: 0,
-            linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }],
-        },
-        ringColor: {
-            name: "Ring Color",
-            on: false,
-            speed: 0,
-            duration: 0,
-            linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }],
-        },
         sparkleColor: {
             name: "Sparkle Color",
             on: false,
