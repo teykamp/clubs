@@ -3,9 +3,15 @@
     <v-card>
       <v-container class="d-inline-flex">
         <!-- add breakpoint here -->
-            <v-card-title class="text-truncate" style="max-width: 65%">
-              {{ title }}
-            </v-card-title>
+            <div style="max-width: 65%">
+              <v-card-title class="text-truncate">
+                {{ title }}
+              </v-card-title>
+              
+              <v-card-subtitle style="margin-top: -10px">
+                {{ subtitle }}
+              </v-card-subtitle>
+            </div>
             <v-col style="margin-top: -16px; margin-left: -10px; margin-right: -10px">
               <v-card-actions>
                 <v-btn 
@@ -56,6 +62,7 @@ import { ref, computed } from'vue'
 
 const props = defineProps<{
   title: string,
+  subtitle: string,
 }>()
 
 const emits = defineEmits([

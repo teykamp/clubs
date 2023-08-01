@@ -119,6 +119,7 @@
             >
               <PatternParent 
                 v-model:title="addedPatterns[index].displayName"
+                :subtitle="addedPatterns[index].name"
                 @update:delete="deletePattern(index)"
                 :id="`pattern-id-${addedPatterns[index].id}`"
               >
