@@ -94,7 +94,7 @@ function getDefaultPattern(name: string, id: number) {
             name: "Sparkle Color",
             on: false,
             speed: 0,
-            duration: 0,
+            intensity: 0,
             linkColors: true,
             color: [{
                 "h": 0,

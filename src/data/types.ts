@@ -31,7 +31,7 @@ type BasePattern = {
         name: string,
         on: boolean,
         speed: number,
-        duration: number,
+        intensity: number,
         linkColors: boolean,
         color: [{
             "h": number,

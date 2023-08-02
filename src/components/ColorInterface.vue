@@ -95,17 +95,18 @@
                 ></v-slider>
               </v-col>
             <v-col
-              v-if="typeof(colors) === 'object' && 'duration' in colors"
+              v-if="'duration' in colors"
               cols="6"
             >
               <v-slider
                 v-model="colors.duration"
                 inverse-label
                 :prependIcon="summaryIconList[1]"
+                max="120"
                 class="mx-6" 
                 min="0" 
                 max="10"
-                :label="`Duration: ${sliderDisplay(colors.duration, 0)}`"
+                :label="`Intensity: ${sliderDisplay(colors.intensity, -1)}`"
               ></v-slider>
             </v-col>
           </v-row>
