@@ -70,8 +70,7 @@
             v-model:colors="colorInterfaceColors[key]"
             :patternType="String(key)"
           />
-        </div>
-                
+        </div>   
         <v-row class="d-flex justify-center">
           <v-col cols="6">
             <v-slider 
@@ -85,7 +84,7 @@
             ></v-slider>
           </v-col>
           <v-col 
-            v-if="typeof(data) === 'object' && 'colorCycleSpeed' in data"
+            v-if="'colorCycleSpeed' in data"
           >
             <v-slider
               inverse-label

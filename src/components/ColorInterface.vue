@@ -91,7 +91,7 @@
                   class="mx-6" 
                   min="0" 
                   max="10"
-                  :label="`Speed: ${sliderDisplay(colors.speed, 0)}`"
+                  :label="`Speed: ${sliderDisplay(colors.speed, 120)}`"
                 ></v-slider>
               </v-col>
             <v-col
@@ -102,7 +102,19 @@
                 v-model="colors.duration"
                 inverse-label
                 :prependIcon="summaryIconList[1]"
+                class="mx-6" 
+                min="5" 
                 max="120"
+                :label="`Duration: ${sliderDisplay(colors.duration, 120)}`"
+              ></v-slider>
+            </v-col>
+            <v-col 
+              v-if="'intensity' in colors"
+            >
+              <v-slider
+                inverse-label
+                v-model="colors.intensity"
+                :prependIcon="Object.values(summaryIconList)[2]"
                 class="mx-6" 
                 min="0" 
                 max="10"
@@ -132,6 +144,7 @@ const props= defineProps<{
       'l': number
     }[],
     speed: number,
+    intensity: number,
     duration: number,
   },
   patternType: string
@@ -149,5 +162,5 @@ const colors = computed({
 const colorDialog = ref(false)
 const colorIndex = ref(0)
 
-const summaryIconList = ["mdi-speedometer", "mdi-timer-sand"]
+const summaryIconList = ["mdi-speedometer", "mdi-timer-sand", "mdi-lightbulb-outline"]
 </script>
