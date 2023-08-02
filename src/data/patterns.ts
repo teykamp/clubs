@@ -121,7 +121,7 @@ function getDefaultPattern(name: string, id: number) {
             name: "Flash Color",
             on: false,
             speed: 0,
-            duration: 0,
+            dutyCycle: 0,
             linkColors: true,
             color: [{
                 "h": 0,

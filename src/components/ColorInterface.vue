@@ -121,6 +121,19 @@
                 :label="`Intensity: ${sliderDisplay(colors.intensity, -1)}`"
               ></v-slider>
             </v-col>
+            <v-col 
+              v-if="'dutyCycle' in colors"
+            >
+              <v-slider
+                inverse-label
+                v-model="colors.dutyCycle"
+                :prependIcon="Object.values(summaryIconList)[3]"
+                class="mx-6" 
+                min="0" 
+                max="10"
+                :label="`Duty Cycle: ${sliderDisplay(colors.dutyCycle, -1)}`"
+              ></v-slider>
+            </v-col>
           </v-row>
         </v-card>
       </v-expand-transition>
@@ -145,6 +158,7 @@ const props= defineProps<{
     }[],
     speed: number,
     intensity: number,
+    dutyCycle: number,
     duration: number,
   },
   patternType: string
@@ -162,5 +176,5 @@ const colors = computed({
 const colorDialog = ref(false)
 const colorIndex = ref(0)
 
-const summaryIconList = ["mdi-speedometer", "mdi-timer-sand", "mdi-lightbulb-outline"]
+const summaryIconList = ["mdi-speedometer", "mdi-timer-sand", "mdi-lightbulb-outline", "mdi-chip"]
 </script>

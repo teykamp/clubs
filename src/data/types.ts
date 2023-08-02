@@ -58,7 +58,7 @@ type BasePattern = {
         name: string,
         on: boolean,
         speed: number,
-        duration: number,
+        dutyCycle: number,
         linkColors: boolean,
         color: [{
             "h": number,
