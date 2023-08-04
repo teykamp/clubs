@@ -126,11 +126,12 @@
             >
               <v-slider
                 inverse-label
+                step="5"
                 v-model="colors.dutyCycle"
                 :prependIcon="Object.values(summaryIconList)[3]"
                 class="mx-6" 
                 min="0" 
-                max="10"
+                max="100"
                 :label="`Duty Cycle: ${sliderDisplay(colors.dutyCycle, -1)}`"
               ></v-slider>
             </v-col>
