@@ -1,8 +1,9 @@
-function getDefaultSmallPattern(name: string, id: number) {
+function getDefaultSmallPattern(name: string, id: number, patternName: string) {
     return {
         id: id,
         name: name,
         displayName: name,
+        patternName: patternName,
         sparkleColor: {
             name: "Sparkle Color",
             on: false,
@@ -61,11 +62,12 @@ function getDefaultSmallPattern(name: string, id: number) {
 }
 
 
-function getDefaultPattern(name: string, id: number) {
+function getDefaultPattern(name: string, id: number, patternName: string) {
     return {
         id: id,
         name: name,
         displayName: name,
+        patternName: patternName,
         linkColors: true,
         color: {
             name: "Color",
@@ -149,11 +151,12 @@ function getDefaultPattern(name: string, id: number) {
     }
 }
 
-function  getDefaultLargePattern(name: string, id: number) {
+function  getDefaultLargePattern(name: string, id: number, patternName: string) {
     return {
         id: id,
         name: name,
         displayName: name,
+        patternName: patternName,
         color: {
             name: "Color",
             linkColors: true,
@@ -266,16 +269,16 @@ function  getDefaultLargePattern(name: string, id: number) {
 
 
 export const patterns = {
-    "Solid Color": getDefaultPattern("Solid Color", getDate()),
-    "Pulsing Color": getDefaultPattern("Pulsing Color", getDate()),
-    "Multipole": getDefaultLargePattern("Multipole", getDate()),
-    "Confetti": getDefaultLargePattern("Confetti", getDate()),
-    "Linear Rainbow": getDefaultSmallPattern("Linear Rainbow", getDate()),
-    "Vertical Rainbow": getDefaultSmallPattern("Vertical Rainbow", getDate()),
-    "Vertical Wave": getDefaultLargePattern("Vertical Wave", getDate()),
-    "Torch": getDefaultLargePattern("Torch", getDate()),
-    "BPM": getDefaultSmallPattern("BPM", getDate()),
-    "Juggle": getDefaultSmallPattern("Juggle", getDate()),
+    "Solid Color": getDefaultPattern("Solid Color", getDate(), "solidColor"),
+    "Pulsing Color": getDefaultPattern("Pulsing Color", getDate(), "pulsingColor"),
+    "Multipole": getDefaultLargePattern("Multipole", getDate(), "multipole"),
+    "Confetti": getDefaultLargePattern("Confetti", getDate(), "confetti"),
+    "Linear Rainbow": getDefaultSmallPattern("Linear Rainbow", getDate(), "linearRainbow"),
+    "Vertical Rainbow": getDefaultSmallPattern("Vertical Rainbow", getDate(), "verticalRainbow"),
+    "Vertical Wave": getDefaultLargePattern("Vertical Wave", getDate(), "verticalWave"),
+    "Torch": getDefaultLargePattern("Torch", getDate(), "torch"),
+    "BPM": getDefaultSmallPattern("BPM", getDate(), "bpm"),
+    "Juggle": getDefaultSmallPattern("Juggle", getDate(), "juggle"),
 }
     
 function getDate() {
