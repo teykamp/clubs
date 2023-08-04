@@ -26,6 +26,19 @@
             >Copy to Clipboard</v-btn>
           </template>
         </Dialog>
+
+        <v-sheet>
+
+          <div 
+            v-for="pattern in addedPatterns"
+            style="cursor: pointer"
+            class="hover-underline"
+            @click="scrollToElement(pattern.id)"
+          >
+            <v-card-title style="margin-bottom: -10px;">{{ pattern.displayName }}</v-card-title>
+            <!-- <v-card-subtitle>{{ pattern.name }}</v-card-subtitle> -->
+          </div>
+        </v-sheet>
         <v-col xs="10" sm="10" md="11" lg="8" xl="7">
           <v-sheet v-if="appStatus === appStatusEnum.HOME" class="d-flex justify-center mt-8">   
             <v-btn
@@ -352,5 +365,9 @@ function handleImportFileInput() {
 .scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.hover-underline:hover {
+  text-decoration: underline;
 }
 </style>
