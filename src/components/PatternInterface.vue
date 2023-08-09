@@ -9,6 +9,7 @@
           color="primary" 
           :prepend-icon="Object.values(summaryIconList)[index]"
           class="ml-1"
+          @click="expand = true"
         >{{ chip }}</v-chip>
         <v-tooltip activator="parent" location="top">{{ Object.keys(summaryIconList)[index] }}</v-tooltip>
       </div>
@@ -31,6 +32,7 @@
                   ${data.color.color[0].l*100}%
                   )`,
                   'width': '30px'}"
+            @click="expand = true"
           ></v-chip>
         </div>
         <div v-else>
