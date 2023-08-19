@@ -81,7 +81,7 @@
           <!-- sliders -->
           <v-row class="d-flex align-center">
               <v-col
-                v-if="typeof(colors) === 'object' && 'speed' in colors"
+                v-if="'speed' in colors"
                 cols="6"
               >
                 <v-slider
