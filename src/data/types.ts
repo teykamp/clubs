@@ -145,7 +145,8 @@ type BaseSmallPattern = {
             "l": number
         }],
     },
-    patternSpeed: number
+    patternSpeed: number,
+    synchronized: boolean,
 }
 
 export type SolidColor = BasePattern

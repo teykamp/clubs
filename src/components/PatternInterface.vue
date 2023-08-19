@@ -6,6 +6,7 @@
         :key="chip"
       >
         <v-chip
+          v-if="chip !== ''"
           color="primary" 
           :prepend-icon="Object.values(summaryIconList)[index]"
           class="ml-1"
@@ -14,7 +15,7 @@
         <v-tooltip activator="parent" location="top">{{ Object.keys(summaryIconList)[index] }}</v-tooltip>
       </div>
       <v-divider
-        v-if="typeof(data) === 'object' && 'color' in data"
+        v-if="'color' in data"
         vertical 
         class="ml-2" 
         style="max-height: 30px;"
@@ -74,7 +75,7 @@
           />
         </div>   
         <v-row class="d-flex justify-center">
-          <v-col cols="6">
+          <v-col cols="6" >
             <v-slider 
               v-model="data.patternSpeed"
               inverse-label
@@ -85,6 +86,11 @@
               :label="`Speed: ${sliderDisplay(data.patternSpeed, 0)}`"
             ></v-slider>
           </v-col>
+          <v-switch 
+            v-if="'synchronized' in data"
+            v-model="data.synchronized"
+            :label="data.synchronized ? 'Synchronized' : 'Un-Synchronized'"
+          ></v-switch>
           <v-col 
             v-if="'colorCycleSpeed' in data"
           >
@@ -172,9 +178,15 @@ function getChipDisplay() {
 
   if ("colorCycleSpeed" in props.data) 
     chips.push(`${sliderDisplay(props.data.colorCycleSpeed, 120)}`)
-
+    // TODO: Patch this and redo chip icon and tooltip function maybe with dict and a find() method
+  if ("synchronized" in props.data) {
+    if (!("colorCycleSpeed" in props.data)) {
+      chips.push("")
+    }
+    chips.push(props.data.synchronized ? 'Synched' : 'Un-Synched')
+  }
   return chips
 }
 
-const summaryIconList = {"Options": "mdi-puzzle", "Speed": 'mdi-speedometer', "Duration": "mdi-rotate-right"}
+const summaryIconList = {"Options": "mdi-puzzle", "Speed": 'mdi-speedometer', "Duration": "mdi-rotate-right", "Synchronization": "mdi-sync"}
 </script>

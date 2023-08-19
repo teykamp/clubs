@@ -58,6 +58,7 @@ function getDefaultSmallPattern(name: string, id: number, patternName: string) {
             }],
         },
         patternSpeed: 0,
+        synchronized: true
     }
 }
 
