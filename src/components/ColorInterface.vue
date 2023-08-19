@@ -25,7 +25,7 @@
 
     <v-card elevation="0" class="mx-6">
       <v-checkbox
-        v-if="typeof(colors) === 'object' && 'on' in colors"
+        v-if="'on' in colors"
         v-model="colors.on"
         :label="colors.name"
       ></v-checkbox>
