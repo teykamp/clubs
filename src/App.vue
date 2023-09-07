@@ -301,7 +301,6 @@ async function handleSubmitClick() {
       },
     )
 
-  navigator.clipboard.writeText(JSON.stringify(addedPatterns.value))
   showSubmitSnackbar.value = true
 }
 
