@@ -212,6 +212,7 @@
 </template>
 
 <script setup lang="ts">
+import axios from 'axios'
 import { ref, nextTick } from 'vue'
 import PatternParent from '@/components/PatternParent.vue'
 import PatternInterface from '@/components/PatternInterface.vue'
@@ -302,6 +303,15 @@ async function handleSubmitClick() {
     )
 
   showSubmitSnackbar.value = true
+
+  /* 
+    This is api post request
+
+    await axios.post('/api/upload', JSON.stringify(addedPatterns.value))
+    then add some snackbar with error or not if returns 200
+
+
+  */
 }
 
 
