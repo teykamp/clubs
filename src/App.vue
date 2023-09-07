@@ -195,11 +195,11 @@
           </v-menu>
           <Snackbar 
             v-model:showSnackbar="showSubmitSnackbar" 
-            :timeout="5000"
-            :color="''"
+            :timeout="submitSnackbarData.timeout"
+            :color="submitSnackbarData.color"
           >
             <template #content>
-              <h3>JSON Template Copied to Clipboard</h3>
+              <h3>{{ submitSnackbarData.text }}</h3>
             </template>
             <template #actions>
               <v-btn variant="outlined" class="ma-2" @click="downloadJSONData()">Download File</v-btn>
@@ -281,7 +281,26 @@ function downloadJSONData() {
   anchor.click()
 }
 
-function handleSubmitClick() {
+const submitSnackbarData = ref({
+  color: '',
+  text: '',
+  timeout: 5000,
+})
+
+async function handleSubmitClick() {
+  await navigator.clipboard.writeText(JSON.stringify(addedPatterns.value))
+    .then(
+      () => {
+        submitSnackbarData.value.color = 'success'
+        submitSnackbarData.value.text = 'JSON Template Copied to Clipboard'
+      },
+      () => {
+        submitSnackbarData.value.color = 'error'
+        submitSnackbarData.value.text = `Could not access clipboard. \n
+        Please copy manually: ${JSON.stringify(addedPatterns.value)}`
+      },
+    )
+
   navigator.clipboard.writeText(JSON.stringify(addedPatterns.value))
   showSubmitSnackbar.value = true
 }
