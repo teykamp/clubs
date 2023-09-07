@@ -296,8 +296,8 @@ async function handleSubmitClick() {
       },
       () => {
         submitSnackbarData.value.color = 'error'
-        submitSnackbarData.value.text = `Could not access clipboard. \n
-        Please copy manually: ${JSON.stringify(addedPatterns.value)}`
+        submitSnackbarData.value.text = `Could not access clipboard.
+        Please copy manually: ${ JSON.stringify(addedPatterns.value) }`
       },
     )
 
