@@ -1,287 +1,133 @@
-function getDefaultSmallPattern(name: string, id: number, patternName: string) {
+var aliases = {
+    // patterns
+    patternName: 0,
+    linkColors: 1,
+    color: 2,
+    secondaryColor: 3,
+    sparkleColor: 4,
+    flashColor: 5,
+    patternSpeed: 6,
+    patternDuration: 7,
+    colorCycleSpeed: 8,
+    synchronized: 9,
+
+    // sparkleColor
+    on: 10,
+    speed: 11,
+    intensity: 12,
+
+    // flashColor
+    dutyCycle: 13,
+
+    // general
+    true: 1,
+    false: 0,
+};
+
+var defaultColor = "f".repeat(6 * 4);
+
+function getDefaultSmallPattern(patternName: string) {
+    // For patterns such as BPM that have a fixed color or one that changes so rapidly it doesn't need a starting color. Most of the properties are pre-defined by the pattern and not able to be changed. Hence the smaller number of options to customize.
     return {
-        id: id,
-        name: name,
-        displayName: name,
-        patternName: patternName,
-        sparkleColor: {
-            name: "Sparkle Color",
-            on: false,
-            speed: 0,
-            duration: 0,
-            linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
+        [aliases.patternName]: patternName,
+        [aliases.sparkleColor]: {
+            [aliases.on]: aliases.false,
+            [aliases.speed]: 0,
+            [aliases.intensity]: 0,
+            [aliases.color]: {
+                [aliases.linkColors]: aliases.true,
+                [aliases.color]: defaultColor,
+            }},
+        [aliases.flashColor]: {
+            [aliases.on]: aliases.false,
+            [aliases.speed]: 0,
+            [aliases.dutyCycle]: 0,
+            [aliases.color]: {
+                [aliases.linkColors]: aliases.true,
+                [aliases.color]: defaultColor,
             },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }]},
-        flashColor: {
-            name: "Flash Color",
-            on: false,
-            speed: 0,
-            duration: 0,
-            linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }],
         },
-        patternSpeed: 0,
-        synchronized: true
+        [aliases.patternSpeed]: 1,
+        [aliases.patternDuration]: 10,
+        [aliases.synchronized]: aliases.true
     }
 }
 
 
-function getDefaultPattern(name: string, id: number, patternName: string) {
+function getDefaultPattern(patternName: string) {
     return {
-        id: id,
-        name: name,
-        displayName: name,
-        patternName: patternName,
-        linkColors: true,
-        color: {
-            name: "Color",
-            linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }]},
-        sparkleColor: {
-            name: "Sparkle Color",
-            on: false,
-            speed: 0,
-            intensity: 0,
-            linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }],
+        [aliases.patternName]: patternName,
+        [aliases.color]: {
+            [aliases.linkColors]: aliases.true,
+            [aliases.color]: defaultColor,
         },
-        flashColor: {
-            name: "Flash Color",
-            on: false,
-            speed: 0,
-            dutyCycle: 0,
-            linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
+        [aliases.sparkleColor]: {
+            [aliases.on]: aliases.false,
+            [aliases.speed]: 0,
+            [aliases.intensity]: 0,
+            [aliases.color]: {
+                [aliases.linkColors]: aliases.true,
+                [aliases.color]: defaultColor,
+            }},
+        [aliases.flashColor]: {
+            [aliases.on]: aliases.false,
+            [aliases.speed]: 0,
+            [aliases.dutyCycle]: 0,
+            [aliases.color]: {
+                [aliases.linkColors]: aliases.true,
+                [aliases.color]: defaultColor,
             },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }],
         },
-        patternSpeed: 0,
-        colorCycleSpeed: 5,
+        [aliases.patternSpeed]: 1,
+        [aliases.colorCycleSpeed]: 1,
+        [aliases.patternDuration]: 10,
+        [aliases.synchronized]: aliases.true
     }
 }
 
-function  getDefaultLargePattern(name: string, id: number, patternName: string) {
+function  getDefaultLargePattern(patternName: string) {
     return {
-        id: id,
-        name: name,
-        displayName: name,
-        patternName: patternName,
-        color: {
-            name: "Color",
-            linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }]},
-        sparkleColor: {
-            name: "Sparkle Color",
-            on: false,
-            speed: 0,
-            duration: 0,
-            linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }],
+        [aliases.patternName]: patternName,
+        [aliases.color]: {
+            [aliases.linkColors]: aliases.true,
+            [aliases.color]: defaultColor,
         },
-        flashColor: {
-            name: "Flash Color",
-            on: false,
-            speed: 0,
-            duration: 0,
-            linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
+        [aliases.secondaryColor]: defaultColor,
+        [aliases.sparkleColor]: {
+            [aliases.on]: aliases.false,
+            [aliases.speed]: 0,
+            [aliases.intensity]: 0,
+            [aliases.color]: {
+                [aliases.linkColors]: aliases.true,
+                [aliases.color]: defaultColor,
+            }},
+        [aliases.flashColor]: {
+            [aliases.on]: aliases.false,
+            [aliases.speed]: 0,
+            [aliases.dutyCycle]: 0,
+            [aliases.color]: {
+                [aliases.linkColors]: aliases.true,
+                [aliases.color]: defaultColor,
             },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }],
         },
-        patternSpeed: 0,
-        colorCycleSpeed: 5,
-        secondaryColor: {
-            name: "Secondary Color",
-            on: false,
-            speed: 0,
-            duration: 0,
-            linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }],
-        },
+        [aliases.patternSpeed]: 1,
+        [aliases.colorCycleSpeed]: 1,
+        [aliases.patternDuration]: 10,
+        [aliases.synchronized]: aliases.true
     }
 }
-
-
 
 export const patterns = {
-    "Solid Color": getDefaultPattern("Solid Color", getDate(), "solidColor"),
-    "Pulsing Color": getDefaultPattern("Pulsing Color", getDate(), "pulsingColor"),
-    "Multipole": getDefaultLargePattern("Multipole", getDate(), "multipole"),
-    "Confetti": getDefaultLargePattern("Confetti", getDate(), "confetti"),
-    "Linear Rainbow": getDefaultSmallPattern("Linear Rainbow", getDate(), "linearRainbow"),
-    "Vertical Rainbow": getDefaultSmallPattern("Vertical Rainbow", getDate(), "verticalRainbow"),
-    "Vertical Wave": getDefaultLargePattern("Vertical Wave", getDate(), "verticalWave"),
-    "Torch": getDefaultLargePattern("Torch", getDate(), "torch"),
-    "BPM": getDefaultSmallPattern("BPM", getDate(), "bpm"),
-    "Juggle": getDefaultSmallPattern("Juggle", getDate(), "juggle"),
-}
-    
-function getDate() {
-    return Date.now()
+    "Solid Color": getDefaultPattern("solidColor"),
+    "Pulsing Color": getDefaultPattern("pulsingColor"),
+    "Spirals": getDefaultLargePattern("spirals"),
+    "Stripes": getDefaultLargePattern("stripes"),
+    "Multipole": getDefaultLargePattern("multipole"),
+    "Confetti": getDefaultLargePattern("confetti"),
+    "Linear Rainbow": getDefaultSmallPattern("linearRainbow"),
+    "Vertical Rainbow": getDefaultSmallPattern("verticalRainbow"),
+    "Vertical Wave": getDefaultLargePattern("verticalWave"),
+    "Torch": getDefaultLargePattern("torch"),
+    "BPM": getDefaultSmallPattern("bpm"),
+    "Juggle": getDefaultSmallPattern("juggle"),
 }
