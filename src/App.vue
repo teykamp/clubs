@@ -28,7 +28,6 @@
         </Dialog>
 
         <v-sheet>
-
           <div 
             v-for="pattern in addedPatterns"
             style="cursor: pointer"
@@ -420,6 +419,60 @@ function handleImportFileInput() {
 
 // getCurrentStoredData()
 
+interface Pattern {
+  [key: string]: any;
+}
+
+const variableMapping: { [key: string]: number } = {
+  // patterns
+  patternName: 0,
+  linkColors: 1,
+  color: 2,
+  secondaryColor: 3,
+  sparkleColor: 4,
+  flashColor: 5,
+  patternSpeed: 6,
+  patternDuration: 7,
+  colorCycleSpeed: 8,
+  synchronized: 9,
+  disabled: 14,
+  duration: 15,
+
+
+  // sparkleColor
+  on: 10,
+  speed: 11,
+  intensity: 12,
+
+  // flashColor
+  dutyCycle: 13,
+
+  // general
+  true: 1,
+  false: 0,
+}
+
+function convertToCondensedVersion(data: Pattern[]) {
+  // will need a way to revert it... for importing
+  return data.map(obj => {
+    const condensedData: { [key: number | string]: any } = {}
+    for (const key in obj) {
+      if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+        condensedData[variableMapping[key]] = convertToCondensedVersion([obj[key] as Pattern])[0];
+      } else if (typeof variableMapping[key] !== 'undefined') {
+        if (typeof obj[key] === "boolean") {
+          // Map true/false to 1/0
+          condensedData[variableMapping[key]] = obj[key] ? 1 : 0;
+        } else {
+          condensedData[variableMapping[key]] = obj[key];
+        }
+      } else {
+        condensedData[key] = obj[key];
+      }
+    }
+    return condensedData
+  })
+}
 
 </script>
 
