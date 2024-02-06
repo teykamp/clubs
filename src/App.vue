@@ -305,18 +305,22 @@ const submitSnackbarData = ref({
 const condenseOutput = ref(true)
 
 async function handleSubmitClick() {
-  await navigator.clipboard.writeText(JSON.stringify(addedPatterns.value))
-    .then(
-      () => {
-        submitSnackbarData.value.color = 'success'
-        submitSnackbarData.value.text = 'JSON Template Copied to Clipboard'
-      },
-      () => {
-        submitSnackbarData.value.color = 'error'
-        submitSnackbarData.value.text = `Could not access clipboard.
-        Please copy manually: ${ JSON.stringify(addedPatterns.value) }`
-      },
-    )
+
+  submitSnackbarData.value.color = 'success'
+  submitSnackbarData.value.text = condenseOutput.value ? JSON.stringify(convertToCondensedVersion(addedPatterns.value)) : JSON.stringify(addedPatterns.value)
+
+  // await navigator.clipboard.writeText(JSON.stringify(addedPatterns.value))
+  //   .then(
+  //     () => {
+  //       submitSnackbarData.value.color = 'success'
+  //       submitSnackbarData.value.text = 'JSON Template Copied to Clipboard'
+  //     },
+  //     () => {
+  //       submitSnackbarData.value.color = 'error'
+  //       submitSnackbarData.value.text = `Could not access clipboard.
+  //       Please copy manually: ${ JSON.stringify(addedPatterns.value) }`
+  //     },
+  //   )
 
   showSubmitSnackbar.value = true
 
