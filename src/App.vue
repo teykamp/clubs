@@ -132,6 +132,7 @@
             >
               <PatternParent 
                 v-model:title="addedPatterns[index].displayName"
+                v-model:disabled="addedPatterns[index].disabled"
                 :subtitle="addedPatterns[index].name"
                 @update:delete="deletePattern(index)"
                 :id="`pattern-id-${addedPatterns[index].id}`"
@@ -212,7 +213,7 @@
 </template>
 
 <script setup lang="ts">
-import axios from 'axios'
+// import axios from 'axios'
 import { ref, nextTick } from 'vue'
 import PatternParent from '@/components/PatternParent.vue'
 import PatternInterface from '@/components/PatternInterface.vue'
@@ -304,14 +305,13 @@ async function handleSubmitClick() {
 
   showSubmitSnackbar.value = true
 
-  /* 
-    This is api post request
+  // try {
+  //   console.log(addedPatterns.value)
+  //   await axios.post('http://localhost:3000//submit', JSON.stringify(addedPatterns.value))
+  // } catch (error) {
+  //   console.log('Error posting patterns to server:', error)
+  // }
 
-    await axios.post('/api/upload', JSON.stringify(addedPatterns.value))
-    then add some snackbar with error or not if returns 200
-
-
-  */
 }
 
 
@@ -384,6 +384,27 @@ function handleImportFileInput() {
     importFileError.value = ""
   }
 }
+
+// const getCurrentStoredData = () => {
+//   // try {
+//   //   // read from file './components/programStorageFile.json'
+//   //   // read ip address from another file here as well?
+//   // } catch (error) {
+//   //   console.log('Cannot read data from json file on startup: ', error)
+//   // }
+
+//   console.log('hi')
+//   fetch('src\\myText.txt')
+//     .then((res) => res.text())
+//     .then((text) => {
+//       console.log(text)
+//     })
+//     .catch((e) => console.error(e));
+// }
+
+// getCurrentStoredData()
+
+
 </script>
 
 <style scoped>

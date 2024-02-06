@@ -4,6 +4,7 @@ type BasePattern = {
     name: string,
     patternName: string,
     linkColors: boolean,
+    disabled: boolean,
     color: {
         name: string,
         linkColors: boolean,
@@ -91,6 +92,7 @@ type BaseSmallPattern = {
     displayName: string,
     name: string,
     patternName: string,
+    disabled: boolean,
     sparkleColor: {
         name: string,
         on: boolean,

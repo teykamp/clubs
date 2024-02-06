@@ -4,6 +4,7 @@ function getDefaultSmallPattern(name: string, id: number, patternName: string) {
         name: name,
         displayName: name,
         patternName: patternName,
+        disabled: false,
         sparkleColor: {
             name: "Sparkle Color",
             on: false,
@@ -69,6 +70,7 @@ function getDefaultPattern(name: string, id: number, patternName: string) {
         name: name,
         displayName: name,
         patternName: patternName,
+        disabled: false,
         linkColors: true,
         color: {
             name: "Color",
@@ -158,6 +160,7 @@ function  getDefaultLargePattern(name: string, id: number, patternName: string) 
         name: name,
         displayName: name,
         patternName: patternName,
+        disabled: false,
         color: {
             name: "Color",
             linkColors: true,
