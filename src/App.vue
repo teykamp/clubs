@@ -161,12 +161,26 @@
               </template>
               </PatternParent> 
             </div>
-            <v-btn
-              v-show="addedPatterns.length"
-              class="ml-4"
-              @click="handleSubmitClick()"
-            >Submit</v-btn>
-            <div v-show="addedPatterns.length" class="ml-4 text-caption mt-2">
+            <div class="d-flex justify-space-between">
+              <v-btn
+                v-show="addedPatterns.length"
+                class="ml-4"
+                @click="handleSubmitClick()"
+              >Submit</v-btn>
+              <div 
+                v-show="addedPatterns.length" 
+                style="margin-bottom: -40px; margin-top: -10px;" 
+              >
+                <v-switch
+                  v-model="condenseOutput"
+                  label="Condense Output"
+                ></v-switch>
+              </div>
+            </div>
+            <div 
+              v-show="addedPatterns.length" 
+              class="ml-4 text-caption mt-2"
+            >
               <v-chip label size="x-small">CTRL</v-chip>
               +
               <v-chip label size="x-small">S</v-chip>
@@ -288,6 +302,8 @@ const submitSnackbarData = ref({
   text: '',
   timeout: 5000,
 })
+
+const condenseOutput = ref(true)
 
 async function handleSubmitClick() {
   await navigator.clipboard.writeText(JSON.stringify(addedPatterns.value))
