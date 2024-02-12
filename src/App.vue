@@ -352,13 +352,13 @@ function displayBackButtonDialogHelper() {
 
 const displayImportDialog = ref(false)
 
-const importPasteBoxContent = ref("")
-const importPasteBoxError = ref("")
+const importPasteBoxContent = ref('')
+const importPasteBoxError = ref('')
 
 const currentImportType = ref(importStatusEnum.PASTE)
 const importFileInput = ref()
-const importFileData = ref("")
-const importFileError = ref("")
+const importFileData = ref('')
+const importFileError = ref('')
 
 function handleClickImportButton() {
   if (currentImportType.value === importStatusEnum.PASTE) {
