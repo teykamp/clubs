@@ -226,7 +226,7 @@
 </template>
 
 <script setup lang="ts">
-// import axios from 'axios'
+import axios from 'axios'
 import { ref, nextTick } from 'vue'
 import PatternParent from '@/components/PatternParent.vue'
 import PatternInterface from '@/components/PatternInterface.vue'
@@ -324,13 +324,11 @@ async function handleSubmitClick() {
 
   showSubmitSnackbar.value = true
 
-  // try {
-  //   console.log(addedPatterns.value)
-  //   await axios.post('http://localhost:3000//submit', JSON.stringify(addedPatterns.value))
-  // } catch (error) {
-  //   console.log('Error posting patterns to server:', error)
-  // }
-
+  try {
+    await axios.post(`${postLocation.value}//submit`, JSON.stringify(addedPatterns.value)) // already has http://
+  } catch (error) {
+    console.log('Error posting patterns to server:', error)
+  }
 }
 
 
@@ -404,24 +402,19 @@ function handleImportFileInput() {
   }
 }
 
-// const getCurrentStoredData = () => {
-//   // try {
-//   //   // read from file './components/programStorageFile.json'
-//   //   // read ip address from another file here as well?
-//   // } catch (error) {
-//   //   console.log('Cannot read data from json file on startup: ', error)
-//   // }
+const postLocation = ref('')
+const getCurrentStoredData = async () => {
 
-//   console.log('hi')
-//   fetch('src\\myText.txt')
-//     .then((res) => res.text())
-//     .then((text) => {
-//       console.log(text)
-//     })
-//     .catch((e) => console.error(e));
-// }
+  try {
+    const response = await fetch('src\\ip.txt')
+    postLocation.value = await response.text()
+    console.log(postLocation.value)
+  } catch (error) {
+      console.log('Cannot read data from json file on startup: ', error)
+  }
+}
 
-// getCurrentStoredData()
+getCurrentStoredData()
 
 interface Pattern {
   [key: string]: any;
