@@ -455,16 +455,16 @@ function convertToCondensedVersion(data: Pattern[]) {
     const condensedData: { [key: number | string]: any } = {}
     for (const key in obj) {
       if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
-        condensedData[variableMapping[key]] = convertToCondensedVersion([obj[key] as Pattern])[0];
+        condensedData[variableMapping[key]] = convertToCondensedVersion([obj[key] as Pattern])[0]
       } else if (typeof variableMapping[key] !== 'undefined') {
         if (typeof obj[key] === "boolean") {
           // Map true/false to 1/0
-          condensedData[variableMapping[key]] = obj[key] ? 1 : 0;
+          condensedData[variableMapping[key]] = obj[key] ? 1 : 0
         } else {
-          condensedData[variableMapping[key]] = obj[key];
+          condensedData[variableMapping[key]] = obj[key]
         }
       } else {
-        condensedData[key] = obj[key];
+        condensedData[key] = obj[key]
       }
     }
     return condensedData
