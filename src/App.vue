@@ -460,6 +460,8 @@ function convertToCondensedVersion(data: Pattern[]) {
         if (typeof obj[key] === "boolean") {
           // Map true/false to 1/0
           condensedData[variableMapping[key]] = obj[key] ? 1 : 0
+        } else if (typeof obj[key] === "number") {
+          condensedData[variableMapping[key]] = obj[key].toFixed(1)
         } else {
           condensedData[variableMapping[key]] = obj[key]
         }
