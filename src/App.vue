@@ -232,7 +232,7 @@ import PatternParent from '@/components/PatternParent.vue'
 import PatternInterface from '@/components/PatternInterface.vue'
 import Snackbar from './components/Snackbar.vue'
 import Dialog from './components/Dialog.vue'
-import { patterns } from '@/data/patterns'
+import { patterns, Pattern, variableMapping } from '@/data/patterns'
 import { appStatusEnum } from '@/data/appStatusEnum'
 import { importStatusEnum } from '@/data/importStatusEnum'
 import type { SolidColor,
@@ -415,39 +415,6 @@ const getCurrentStoredData = async () => {
 }
 
 getCurrentStoredData()
-
-interface Pattern {
-  [key: string]: any;
-}
-
-const variableMapping: { [key: string]: number } = {
-  // patterns
-  patternName: 0,
-  linkColors: 1,
-  color: 2,
-  secondaryColor: 3,
-  sparkleColor: 4,
-  flashColor: 5,
-  patternSpeed: 6,
-  patternDuration: 7,
-  colorCycleSpeed: 8,
-  synchronized: 9,
-  disabled: 14,
-  duration: 15,
-
-
-  // sparkleColor
-  on: 10,
-  speed: 11,
-  intensity: 12,
-
-  // flashColor
-  dutyCycle: 13,
-
-  // general
-  true: 1,
-  false: 0,
-}
 
 function convertToCondensedVersion(data: Pattern[]) {
   // will need a way to revert it... for importing

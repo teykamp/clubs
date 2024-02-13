@@ -1,3 +1,36 @@
+export interface Pattern {
+    [key: string]: any;
+}
+
+export const variableMapping: { [key: string]: number } = {
+    // patterns
+    patternName: 0,
+    linkColors: 1,
+    color: 2,
+    secondaryColor: 3,
+    sparkleColor: 4,
+    flashColor: 5,
+    patternSpeed: 6,
+    patternDuration: 7,
+    colorCycleSpeed: 8,
+    synchronized: 9,
+    disabled: 14,
+    duration: 15,
+
+
+    // sparkleColor
+    on: 10,
+    speed: 11,
+    intensity: 12,
+
+    // flashColor
+    dutyCycle: 13,
+
+    // general
+    true: 1,
+    false: 0,
+}
+
 function getDefaultSmallPattern(name: string, id: number, patternName: string) {
     return {
         id: id,
