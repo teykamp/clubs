@@ -123,7 +123,7 @@
           <v-sheet 
             v-if="appStatus !== appStatusEnum.HOME"
             class="overflow-auto scrollbar"
-            style="height: 94vh;" 
+            style="height: 93.5vh;" 
           >
             <div 
               v-for="(pattern, index) in addedPatterns"
