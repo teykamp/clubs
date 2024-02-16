@@ -22,33 +22,34 @@
           >OK</v-btn>
         </template>
     </Dialog>
-
-    <v-card :variant="colors.on ? 'outlined' : 'flat'"  class="mx-6">
-      <v-checkbox
-        v-if="'on' in colors"
-        v-model="colors.on"
-        :label="colors.name"
-      ></v-checkbox>
+    <v-card :variant="colors.on ? 'outlined' : 'flat'"  class="mx-6 mb-6">
+      <div :class="`d-flex ${'on' in colors ? 'justify-space-between' : 'justify-center'} pa-3`">
+        <v-checkbox
+          v-if="'on' in colors"
+          v-model="colors.on"
+          :label="colors.name"
+        ></v-checkbox>
+        <div 
+           v-show="colors.on === undefined || colors.on"
+          class="mr-4 mt-4"
+        >
+          <v-btn
+            :icon="colors.linkColors ? 'mdi-link' : 'mdi-link-off'"
+            variant="plain"
+            density="compact"
+            @click="colors.linkColors = !colors.linkColors"
+          ></v-btn>
+          <v-tooltip activator="parent" location="top">{{ colors.linkColors ? "Unlink Colors" : "Link Colors" }}</v-tooltip>
+        </div>
+      </div>
       <v-expand-transition v-show="colors.on === undefined || colors.on">
         <v-card>
-          <v-card-actions class="ml-6">
-            <div>
-              <v-btn
-                :icon="colors.linkColors ? 'mdi-link' : 'mdi-link-off'"
-                variant="plain"
-                density="compact"
-                @click="colors.linkColors = !colors.linkColors"
-              ></v-btn>
-              <v-tooltip activator="parent" location="top">{{ colors.linkColors ? "Unlink Colors" : "Link Colors" }}</v-tooltip>
-            </div>
-          </v-card-actions>
-
           <!-- colors -->
-          <div v-if="colors.linkColors" class="mb-4">
+          <div v-if="colors.linkColors">
             <v-col
               v-for="(_, index) in colors.color.slice(2, -1)"
               :key="index"
-              class="d-flex justify-center"
+              class="d-flex justify-center mb-4"
             >
               <v-btn :style="{'background': `hsl(
                 ${colors.color[index].h}
