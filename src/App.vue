@@ -136,28 +136,28 @@
                 @update:delete="deletePattern(index)"
                 :id="`pattern-id-${addedPatterns[index].id}`"
               >
-              <template #orderButtons>
-                <v-btn-group variant="outlined">
-                  <v-btn
-                    :disabled="index === 0 ? true: false"
-                    icon="mdi-arrow-up" 
-                    class="mr-0"
-                    @click="handleOrderButtons(-1, index, addedPatterns[index].id)"
-                  ></v-btn>
-                  <v-btn
-                    :disabled="index === addedPatterns.length -1 ? true: false"
-                    icon="mdi-arrow-down" 
-                    class="ml-0"
-                    @click="handleOrderButtons(1, index, addedPatterns[index].id)"
-                  ></v-btn>
-                </v-btn-group>
+                <template #orderButtons>
+                  <v-btn-group variant="outlined">
+                    <v-btn
+                      :disabled="index === 0 ? true: false"
+                      icon="mdi-arrow-up" 
+                      class="mr-0"
+                      @click="handleOrderButtons(-1, index, addedPatterns[index].id)"
+                    ></v-btn>
+                    <v-btn
+                      :disabled="index === addedPatterns.length -1 ? true: false"
+                      icon="mdi-arrow-down" 
+                      class="ml-0"
+                      @click="handleOrderButtons(1, index, addedPatterns[index].id)"
+                    ></v-btn>
+                  </v-btn-group>
 
-              </template>
-              <template #patternInterface>
-                <PatternInterface
-                  v-model:data="addedPatterns[index]"
-                />
-              </template>
+                </template>
+                <template #patternInterface>
+                  <PatternInterface
+                    v-model:data="addedPatterns[index]"
+                  />
+                </template>
               </PatternParent> 
             </div>
             <div class="d-flex justify-space-between">
