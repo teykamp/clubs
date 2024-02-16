@@ -23,7 +23,7 @@
         </template>
     </Dialog>
 
-    <v-card elevation="0" class="mx-6">
+    <v-card :variant="colors.on ? 'outlined' : 'flat'"  class="mx-6">
       <v-checkbox
         v-if="'on' in colors"
         v-model="colors.on"
@@ -77,7 +77,6 @@
               ></v-btn>
             </v-col>
           </div>
-
           <!-- sliders -->
           <v-row class="d-flex align-center">
               <v-col

@@ -68,13 +68,14 @@
         <div 
           v-for="(_, key) in colorInterfaceColors"
           :key="key"
+          class="mb-2"
         >
           <ColorInterface 
             v-model:colors="colorInterfaceColors[key]"
             :patternType="String(key)"
           />
         </div>   
-        <v-row class="d-flex justify-center">
+        <v-row class="d-flex justify-center mt-4">
           <v-col cols="6" >
             <v-slider 
               v-model="data.patternSpeed"

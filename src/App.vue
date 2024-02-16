@@ -14,7 +14,11 @@
           <template #actions>
             <v-btn
               color="red"
-              @click="displayBackButtonDialog = false, appStatus = appStatusEnum.HOME, addedPatterns = [], importFileError = '', importPasteBoxError = ''"
+              @click="displayBackButtonDialog = false,
+                      appStatus = appStatusEnum.HOME, 
+                      addedPatterns = [], 
+                      importFileError = '', 
+                      importPasteBoxError = ''"
             >Proceed</v-btn>
             <v-btn
               color="primary"
@@ -99,7 +103,11 @@
                   @click:clear="importFileInput = null,
                                 importFileData = ''"
                 ></v-file-input>
-                <v-alert v-if="importFileError !== ''" type="warning" :text="importFileError">
+                <v-alert 
+                  v-if="importFileError !== ''" 
+                  type="warning" 
+                  :text="importFileError"
+                >
                 </v-alert>
               </div>
             </template>
@@ -132,8 +140,8 @@
               <PatternParent 
                 v-model:title="addedPatterns[index].displayName"
                 v-model:disabled="addedPatterns[index].disabled"
-                :subtitle="addedPatterns[index].name"
                 @update:delete="deletePattern(index)"
+                :subtitle="addedPatterns[index].name"
                 :id="`pattern-id-${addedPatterns[index].id}`"
               >
                 <template #orderButtons>
@@ -216,8 +224,16 @@
               <h3>{{ submitSnackbarData.text }}</h3>
             </template>
             <template #actions>
-              <v-btn variant="outlined" class="ma-2" @click="downloadJSONData()">Download File</v-btn>
-              <v-btn variant="text" class="ma-2" @click="showSubmitSnackbar = false">Close</v-btn>
+              <v-btn 
+                variant="outlined" 
+                class="ma-2" 
+                @click="downloadJSONData()"
+              >Download File</v-btn>
+              <v-btn 
+                variant="text" 
+                class="ma-2" 
+                @click="showSubmitSnackbar = false"
+              >Close</v-btn>
             </template>
           </Snackbar>
       </v-container>
