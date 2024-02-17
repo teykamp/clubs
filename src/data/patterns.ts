@@ -45,10 +45,10 @@ function getDefaultSmallPattern(name: string, id: number, patternName: string) {
             duration: 0,
             linkColors: true,
             color: [
-                '#000',
-                '#000',
-                '#000',
-                '#000',
+                '#000000',
+                '#000000',
+                '#000000',
+                '#000000',
             ]
         },
         flashColor: {
@@ -58,10 +58,10 @@ function getDefaultSmallPattern(name: string, id: number, patternName: string) {
             duration: 0,
             linkColors: true,
             color: [
-                '#000',
-                '#000',
-                '#000',
-                '#000',
+                '#000000',
+                '#000000',
+                '#000000',
+                '#000000',
             ],
         },
         patternSpeed: 0,
@@ -82,10 +82,10 @@ function getDefaultPattern(name: string, id: number, patternName: string) {
             name: "Color",
             linkColors: true,
             color: [
-                '#000',
-                '#000',
-                '#000',
-                '#000',
+                '#000000',
+                '#000000',
+                '#000000',
+                '#000000',
             ]
         },
         sparkleColor: {
@@ -95,10 +95,10 @@ function getDefaultPattern(name: string, id: number, patternName: string) {
             intensity: 0,
             linkColors: true,
             color: [
-                '#000',
-                '#000',
-                '#000',
-                '#000',
+                '#000000',
+                '#000000',
+                '#000000',
+                '#000000',
             ],
         },
         flashColor: {
@@ -108,10 +108,10 @@ function getDefaultPattern(name: string, id: number, patternName: string) {
             dutyCycle: 0,
             linkColors: true,
             color: [
-                '#000',
-                '#000',
-                '#000',
-                '#000',
+                '#000000',
+                '#000000',
+                '#000000',
+                '#000000',
             ],
         },
         patternSpeed: 0,
@@ -130,10 +130,10 @@ function  getDefaultLargePattern(name: string, id: number, patternName: string) 
             name: "Color",
             linkColors: true,
             color: [
-                '#000',
-                '#000',
-                '#000',
-                '#000',
+                '#000000',
+                '#000000',
+                '#000000',
+                '#000000',
             ]
         },
         sparkleColor: {
@@ -143,10 +143,10 @@ function  getDefaultLargePattern(name: string, id: number, patternName: string) 
             duration: 0,
             linkColors: true,
             color: [
-                '#000',
-                '#000',
-                '#000',
-                '#000',
+                '#000000',
+                '#000000',
+                '#000000',
+                '#000000',
             ],
         },
         flashColor: {
@@ -156,10 +156,10 @@ function  getDefaultLargePattern(name: string, id: number, patternName: string) 
             duration: 0,
             linkColors: true,
             color: [
-                '#000',
-                '#000',
-                '#000',
-                '#000',
+                '#000000',
+                '#000000',
+                '#000000',
+                '#000000',
             ],
         },
         patternSpeed: 0,
@@ -171,10 +171,10 @@ function  getDefaultLargePattern(name: string, id: number, patternName: string) 
             duration: 0,
             linkColors: true,
             color: [
-                '#000',
-                '#000',
-                '#000',
-                '#000',
+                '#000000',
+                '#000000',
+                '#000000',
+                '#000000',
             ],
         },
     }
