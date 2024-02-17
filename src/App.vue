@@ -221,7 +221,14 @@
             :color="submitSnackbarData.color"
           >
             <template #content>
-              <h3>{{ submitSnackbarData.text }}</h3>
+              <h3
+                class="mb-2" 
+                :style="{
+                  'max-height': '500px',
+                  overflow: 'auto',
+                  'word-wrap': 'break-word',
+                }"
+              >{{ submitSnackbarData.text }}</h3>
             </template>
             <template #actions>
               <v-btn 
