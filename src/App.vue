@@ -456,7 +456,9 @@ function convertToCondensedVersion(data: Pattern[]) {
           condensedData[variableMapping[key]] = obj[key]
         }
       } else {
-        condensedData[key] = obj[key]
+        continue
+        // this is if data not in conversion list
+        // condensedData[key] = obj[key]
       }
     }
     return condensedData

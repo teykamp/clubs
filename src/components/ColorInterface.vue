@@ -3,7 +3,7 @@
     <Dialog v-model:showDialog="colorDialog">
         <template #content>
           <v-color-picker
-          :modes="['hsl']"
+          :modes="['hex']"
           :show-swatches="true"
           :hide-inputs="true"
           :hide-sliders="true"
@@ -51,13 +51,11 @@
               :key="index"
               class="d-flex justify-center mb-4"
             >
-              <v-btn :style="{'background': `hsl(
-                ${colors.color[index].h}
-                ${colors.color[index].s*100}%
-                ${colors.color[index].l*100}%
-                )`,
+              <v-btn 
+                :style="{
+                'background': colors.color[index],
                 'width': '45%'}"
-                @click="colorDialog = true;
+                @click="colorDialog = true,
                         colorIndex = 0"
               ></v-btn>
             </v-col>
@@ -67,13 +65,11 @@
               v-for="(_, index) in colors.color.slice(1)"
               :key="index"
             >
-              <v-btn :style="{'background': `hsl(
-                ${colors.color[index+1].h}
-                ${colors.color[index+1].s*100}%
-                ${colors.color[index+1].l*100}%
-                )`,
-                'width': '100%'}"
-                @click="colorDialog = true;
+              <v-btn 
+                :style="{
+                  'background': colors.color[index + 1],
+                  'width': '100%'}"
+                @click="colorDialog = true,
                         colorIndex = index + 1"
               ></v-btn>
             </v-col>
@@ -152,11 +148,7 @@ const props= defineProps<{
     name: string,
     on: boolean,
     linkColors: boolean,
-    color: {
-      'h': number,
-      's': number,
-      'l': number
-    }[],
+    color: string[],
     speed: number,
     intensity: number,
     dutyCycle: number,

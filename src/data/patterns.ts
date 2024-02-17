@@ -44,52 +44,25 @@ function getDefaultSmallPattern(name: string, id: number, patternName: string) {
             speed: 0,
             duration: 0,
             linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }]},
+            color: [
+                '#000',
+                '#000',
+                '#000',
+                '#000',
+            ]
+        },
         flashColor: {
             name: "Flash Color",
             on: false,
             speed: 0,
             duration: 0,
             linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }],
+            color: [
+                '#000',
+                '#000',
+                '#000',
+                '#000',
+            ],
         },
         patternSpeed: 0,
         synchronized: true
@@ -108,52 +81,25 @@ function getDefaultPattern(name: string, id: number, patternName: string) {
         color: {
             name: "Color",
             linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }]},
+            color: [
+                '#000',
+                '#000',
+                '#000',
+                '#000',
+            ]
+        },
         sparkleColor: {
             name: "Sparkle Color",
             on: false,
             speed: 0,
             intensity: 0,
             linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }],
+            color: [
+                '#000',
+                '#000',
+                '#000',
+                '#000',
+            ],
         },
         flashColor: {
             name: "Flash Color",
@@ -161,26 +107,12 @@ function getDefaultPattern(name: string, id: number, patternName: string) {
             speed: 0,
             dutyCycle: 0,
             linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }],
+            color: [
+                '#000',
+                '#000',
+                '#000',
+                '#000',
+            ],
         },
         patternSpeed: 0,
         colorCycleSpeed: 5,
@@ -197,52 +129,25 @@ function  getDefaultLargePattern(name: string, id: number, patternName: string) 
         color: {
             name: "Color",
             linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }]},
+            color: [
+                '#000',
+                '#000',
+                '#000',
+                '#000',
+            ]
+        },
         sparkleColor: {
             name: "Sparkle Color",
             on: false,
             speed: 0,
             duration: 0,
             linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }],
+            color: [
+                '#000',
+                '#000',
+                '#000',
+                '#000',
+            ],
         },
         flashColor: {
             name: "Flash Color",
@@ -250,26 +155,12 @@ function  getDefaultLargePattern(name: string, id: number, patternName: string) 
             speed: 0,
             duration: 0,
             linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }],
+            color: [
+                '#000',
+                '#000',
+                '#000',
+                '#000',
+            ],
         },
         patternSpeed: 0,
         colorCycleSpeed: 5,
@@ -279,26 +170,12 @@ function  getDefaultLargePattern(name: string, id: number, patternName: string) 
             speed: 0,
             duration: 0,
             linkColors: true,
-            color: [{
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            },
-            {
-                "h": 0,
-                "s": 0,
-                "l": 0
-            }],
+            color: [
+                '#000',
+                '#000',
+                '#000',
+                '#000',
+            ],
         },
     }
 }
