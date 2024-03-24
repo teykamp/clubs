@@ -20,9 +20,9 @@ for /f %%F in ('dir %assets-dir% /b "%deletestring%"') do (
 endlocal
 
 @REM Delete redundant webfont files. Keep only materialdesignicons.woff
-del materialdesignicons.eot
-del materialdesignicons.ttf
-del materialdesignicons.woff2
+del %assets-dir%\materialdesignicons.eot
+del %assets-dir%\materialdesignicons.ttf
+del %assets-dir%\materialdesignicons.woff2
 
 @REM Find and replace inside the file index.css to match the renamed materialdesignicon files
 set ffile='%assets-dir%\index.css'
