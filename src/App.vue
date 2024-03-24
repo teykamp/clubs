@@ -351,8 +351,7 @@ async function handleSubmitClick() {
 
   try {
      // already has http://
-
-    await axios.post(`/submit`, JSON.stringify(addedPatterns.value), {
+    await axios.post(`/submit`, output, {
       headers: {
         'content-type': 'application/json'
       }
