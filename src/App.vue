@@ -329,9 +329,10 @@ const submitSnackbarData = ref({
 const condenseOutput = ref(true)
 
 async function handleSubmitClick() {
+  const output = condenseOutput.value ? JSON.stringify(convertToCondensedVersion(addedPatterns.value)) : JSON.stringify(addedPatterns.value)
 
   submitSnackbarData.value.color = 'success'
-  submitSnackbarData.value.text = condenseOutput.value ? JSON.stringify(convertToCondensedVersion(addedPatterns.value)) : JSON.stringify(addedPatterns.value)
+  submitSnackbarData.value.text = output
 
   // await navigator.clipboard.writeText(JSON.stringify(addedPatterns.value))
   //   .then(
@@ -350,7 +351,7 @@ async function handleSubmitClick() {
 
   try {
      // already has http://
-    await axios.post(`/submit`, JSON.stringify(addedPatterns.value), {
+    await axios.post(`/submit`, JSON.stringify(output), {
       headers: {
         'content-type': 'application/json'
       }
