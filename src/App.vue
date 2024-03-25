@@ -15,9 +15,9 @@
             <v-btn
               color="red"
               @click="displayBackButtonDialog = false,
-                      appStatus = appStatusEnum.HOME, 
-                      addedPatterns = [], 
-                      importFileError = '', 
+                      appStatus = appStatusEnum.HOME,
+                      addedPatterns = [],
+                      importFileError = '',
                       importPasteBoxError = ''"
             >Proceed</v-btn>
             <v-btn
@@ -32,7 +32,7 @@
         </Dialog>
 
         <v-sheet>
-          <div 
+          <div
             v-for="pattern in addedPatterns"
             :key="pattern.id"
             style="cursor: pointer"
@@ -44,7 +44,7 @@
           </div>
         </v-sheet>
         <v-col xs="10" sm="10" md="11" lg="8" xl="7">
-          <v-sheet v-if="appStatus === appStatusEnum.HOME" class="d-flex justify-center mt-8">   
+          <v-sheet v-if="appStatus === appStatusEnum.HOME" class="d-flex justify-center mt-8">
             <v-btn
               class="ma-2"
               prepend-icon="mdi-plus"
@@ -70,15 +70,15 @@
                 </v-row>
                 <v-textarea
                   v-model="importPasteBoxContent"
-                  label="Paste JSON Here" 
-                  variant="outlined" 
+                  label="Paste JSON Here"
+                  variant="outlined"
                   rows="6"
                   style="min-width: 600px"
                   class="mt-4"
                 ></v-textarea>
-                <v-btn 
-                  color="primary" 
-                  size="x-small" 
+                <v-btn
+                  color="primary"
+                  size="x-small"
                   style="margin-top: -40px"
                   variant="text"
                   @click="importPasteBoxContent = ''"
@@ -96,7 +96,7 @@
                       @click="currentImportType = importStatusEnum.PASTE"
                     >Paste JSON</v-btn>
                 </v-row>
-                <v-file-input 
+                <v-file-input
                   v-model="importFileInput"
                   label="JSON Upload"
                   prepend-icon="mdi-code-braces"
@@ -104,9 +104,9 @@
                   @click:clear="importFileInput = null,
                                 importFileData = ''"
                 ></v-file-input>
-                <v-alert 
-                  v-if="importFileError !== ''" 
-                  type="warning" 
+                <v-alert
+                  v-if="importFileError !== ''"
+                  type="warning"
                   :text="importFileError"
                 >
                 </v-alert>
@@ -129,16 +129,16 @@
               >Cancel</v-btn>
             </template>
           </Dialog>
-          <v-sheet 
+          <v-sheet
             v-if="appStatus !== appStatusEnum.HOME"
             class="overflow-auto scrollbar"
-            style="height: 93.5vh;" 
+            style="height: 93.5vh;"
           >
-            <div 
+            <div
               v-for="(pattern, index) in addedPatterns"
               :key="pattern.id"
             >
-              <PatternParent 
+              <PatternParent
                 v-model:title="addedPatterns[index].displayName"
                 v-model:disabled="addedPatterns[index].disabled"
                 @update:delete="deletePattern(index)"
@@ -149,13 +149,13 @@
                   <v-btn-group variant="outlined">
                     <v-btn
                       :disabled="index === 0 ? true: false"
-                      icon="mdi-arrow-up" 
+                      icon="mdi-arrow-up"
                       class="mr-0"
                       @click="handleOrderButtons(-1, index, addedPatterns[index].id)"
                     ></v-btn>
                     <v-btn
                       :disabled="index === addedPatterns.length -1 ? true: false"
-                      icon="mdi-arrow-down" 
+                      icon="mdi-arrow-down"
                       class="ml-0"
                       @click="handleOrderButtons(1, index, addedPatterns[index].id)"
                     ></v-btn>
@@ -167,7 +167,7 @@
                     v-model:data="addedPatterns[index]"
                   />
                 </template>
-              </PatternParent> 
+              </PatternParent>
             </div>
             <div class="d-flex justify-space-between">
               <v-btn
@@ -175,9 +175,9 @@
                 class="ml-4"
                 @click="handleSubmitClick()"
               >Submit</v-btn>
-              <div 
-                v-show="addedPatterns.length" 
-                style="margin-bottom: -40px; margin-top: -10px;" 
+              <div
+                v-show="addedPatterns.length"
+                style="margin-bottom: -40px; margin-top: -10px;"
               >
                 <v-switch
                   v-model="condenseOutput"
@@ -185,8 +185,8 @@
                 ></v-switch>
               </div>
             </div>
-            <div 
-              v-show="addedPatterns.length" 
+            <div
+              v-show="addedPatterns.length"
               class="ml-4 text-caption mt-2"
             >
               <v-chip label size="x-small">CTRL</v-chip>
@@ -216,14 +216,14 @@
               </v-list-item>
             </v-list>
           </v-menu>
-          <Snackbar 
-            v-model:showSnackbar="showSubmitSnackbar" 
+          <Snackbar
+            v-model:showSnackbar="showSubmitSnackbar"
             :timeout="submitSnackbarData.timeout"
             :color="submitSnackbarData.color"
           >
             <template #content>
               <h3
-                class="mb-2" 
+                class="mb-2"
                 :style="{
                   'max-height': '500px',
                   overflow: 'auto',
@@ -232,14 +232,14 @@
               >{{ submitSnackbarData.text }}</h3>
             </template>
             <template #actions>
-              <v-btn 
-                variant="outlined" 
-                class="ma-2" 
+              <v-btn
+                variant="outlined"
+                class="ma-2"
                 @click="downloadJSONData()"
               >Download File</v-btn>
-              <v-btn 
-                variant="text" 
-                class="ma-2" 
+              <v-btn
+                variant="text"
+                class="ma-2"
                 @click="showSubmitSnackbar = false"
               >Close</v-btn>
             </template>
@@ -270,7 +270,7 @@ import type { SolidColor,
               BPM,
               Juggle
             } from '@/data/types'
-            
+
 const addedPatterns = ref<(SolidColor|
                           PulsingColor|
                           Confetti|
@@ -351,7 +351,7 @@ async function handleSubmitClick() {
 
   try {
      // already has http://
-    await axios.post(`${postLocation.value}/submit`, JSON.stringify(output), {
+    await axios.post(`/submit`, output, {
       headers: {
         'content-type': 'application/json'
       }
@@ -431,20 +431,6 @@ function handleImportFileInput() {
     importFileError.value = ""
   }
 }
-
-const postLocation = ref('')
-const getCurrentStoredData = async () => {
-
-  try {
-    const response = await fetch('src\\ip.txt')
-    postLocation.value = await response.text()
-    console.log(postLocation.value)
-  } catch (error) {
-      console.log('Cannot read data from json file on startup: ', error)
-  }
-}
-
-getCurrentStoredData()
 
 function convertToCondensedVersion(data: Pattern[]) {
   // will need a way to revert it... for importing
