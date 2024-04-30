@@ -1,4 +1,4 @@
-User Interface for interacting with arduino-controlled juggling clubs. Incorporates server-connectivity, import and export of files and text, and a multitude of patterns and color combinations.
+User Interface for interacting with arduino-controlled juggling clubs. Incorporates real-time interactivity, import and export of files and text, and a multitude of patterns and color combinations.
 
 ![image](https://github.com/teykamp/clubs/assets/46391052/ff41610c-22d1-43bc-aed2-56634ce1ebac)
 
